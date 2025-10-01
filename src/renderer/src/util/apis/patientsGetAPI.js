@@ -34,6 +34,22 @@ export const getPatientDetals = async ({ id }) => {
   return data
 }
 
+export const getPatientAnalysis = async ({ id }) => {
+  if (!id) {
+    throw Error('This Path Does Not Exit!!')
+  }
+
+  const res = await fetch(`${url}/patients/get/patientAnalysis?id=${id}`)
+
+  if (!res.ok) {
+    throw Error('This Patient Does Not Exist')
+  }
+
+  const data = await res.json()
+  return data
+}
+
+
 export const getPatientFiles = async ({ id }) => {
   if (!id) {
     throw Error('This Path Does Not Exit!!')

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EditPatientFrom = ({ handleSubmit, data }) => {
+const EditPatientFrom = ({ handleSubmit, data, schedule, setSchedule }) => {
   const otherInfoFields = [
     {
       key: 10,
@@ -219,6 +219,19 @@ const EditPatientFrom = ({ handleSubmit, data }) => {
             />
           </div>
         ))}
+        <div className="flex flex-col items-end">
+          <h1 className="text-sm font-bold text-mainText">الجدول</h1>
+          <select
+            name=""
+            onChange={(e) => setSchedule(e.target.value)}
+            value={schedule}
+            id=""
+            className=" border-2 border-stone-300 outline-0 focus:border-mainBlue p-3 rounded-xl text-mainText font-bold"
+          >
+            <option value="sunTueThe">الأحد/الثلاثاء/الخميس</option>
+            <option value="satMonWed">السبت/الإثنين/الإربعاء</option>
+          </select>
+        </div>
         <button
           className={`bg-mainBlue text-white text-xl font-bold py-2 
             rounded-full my-4 hover:opacity-45 duration-200`}

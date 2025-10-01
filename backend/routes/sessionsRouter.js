@@ -24,6 +24,7 @@ sessionsRouter.post('/newSession', async (req, res) => {
         day: 'Unknown',
         techName: data.techName ? data.techName : 'Unknown',
         deviceNo: data.deviceNo ? data.deviceNo : 'Unknown',
+        deviceNo: data.bloodPressure ? data.bloodPressure : 'Unknown',
         sessionType: data.sessionType ? data.sessionType : 'Unknown',
         startingTime: data.startingTime ? data.startingTime : 'Unknown',
         anticoagulantUsed: data.anticoagulantUsed ? data.anticoagulantUsed : 'Unknown',
@@ -41,8 +42,28 @@ sessionsRouter.post('/newSession', async (req, res) => {
       }
     })
 
+    function parseBloodPressure(bpString) {
+      const match = bpString.match(/^(\d+)\/(\d+)$/)
+      if (!match) {
+        throw new Error('Invalid blood pressure format')
+      }
+      return {
+        systolic: parseInt(match[1], 10),
+        diastolic: parseInt(match[2], 10)
+      }
+    }
+
     const newSesstionHours = await prisma.sessionHours.createMany({
-      data: sessionHours.map(({ key, ...item }) => ({ ...item, sessionId: newSesstion.id }))
+      data: sessionHours.map(({ key, bloodPressure, ...item }) => ({
+        ...item,
+        sessionId: newSesstion.id,
+        // patientId: Number(patientId),
+        bloodPressure: bloodPressure
+          ? `${parseBloodPressure(bloodPressure).systolic}/${parseBloodPressure(bloodPressure).diastolic}`
+          : '',
+        systolicBP: bloodPressure ? parseBloodPressure(bloodPressure).systolic : '',
+        diastolicBP: bloodPressure ? parseBloodPressure(bloodPressure).diastolic : ''
+      }))
     })
 
     res.json(newSesstion, newSesstionHours)
@@ -149,11 +170,62 @@ sessionsRouter.put('/editSession', async (req, res) => {
       where: { sessionId: Number(sessionId) }
     })
 
+    function parseBloodPressure(bpString) {
+      const match = bpString.match(/^(\d+)\/(\d+)$/)
+      if (!match) {
+        throw new Error('Invalid blood pressure format')
+      }
+      return {
+        systolic: parseInt(match[1], 10),
+        diastolic: parseInt(match[2], 10)
+      }
+    }
+
     const updatedHours = await prisma.sessionHours.createMany({
-      data: sessionHours.map(({ key, ...item }) => ({ ...item, sessionId: Number(sessionId) }))
+      data: sessionHours.map(({ key, bloodPressure, ...item }) => ({
+        ...item,
+        sessionId: Number(sessionId),
+        // patientId: Number(patientId),
+        bloodPressure: bloodPressure
+          ? `${parseBloodPressure(bloodPressure).systolic}/${parseBloodPressure(bloodPressure).diastolic}`
+          : '',
+        systolicBP: bloodPressure ? parseBloodPressure(bloodPressure).systolic : 0,
+        diastolicBP: bloodPressure ? parseBloodPressure(bloodPressure).diastolic : 0
+      }))
     })
 
     res.json(updatedSesstion, updatedHours)
+  } catch (e) {
+    console.log(e)
+  }
+})
+
+sessionsRouter.put('/editBalance', async (req, res) => {
+  const { sessionId, field, value } = req.body
+
+  const session = await prisma.session.findUnique({ where: { id: Number(sessionId) } })
+
+  let intake = session.intake ? session.intake : 0
+  let output = session.output ? session.output : 0
+  try {
+    if (field === 'intake') {
+      intake = (await prisma.session.update({ where: { id: sessionId }, data: { intake: value } }))
+        .intake
+    }
+
+    if (field === 'output') {
+      output = (await prisma.session.update({ where: { id: sessionId }, data: { output: value } }))
+        .output
+    }
+
+    const edittedSesh = await prisma.session.update({
+      where: { id: sessionId },
+      data: { balance: Number(intake) - Number(output) }
+    })
+
+    console.log(edittedSesh.balance)
+
+    res.json(edittedSesh)
   } catch (e) {
     console.log(e)
   }

@@ -2206,6 +2206,7 @@ export namespace Prisma {
     firstTreatmentHere: string | null
     note: string | null
     filterNo: string | null
+    schedule: string | null
   }
 
   export type PatientMaxAggregateOutputType = {
@@ -2226,6 +2227,7 @@ export namespace Prisma {
     firstTreatmentHere: string | null
     note: string | null
     filterNo: string | null
+    schedule: string | null
   }
 
   export type PatientCountAggregateOutputType = {
@@ -2246,6 +2248,7 @@ export namespace Prisma {
     firstTreatmentHere: number
     note: number
     filterNo: number
+    schedule: number
     _all: number
   }
 
@@ -2276,6 +2279,7 @@ export namespace Prisma {
     firstTreatmentHere?: true
     note?: true
     filterNo?: true
+    schedule?: true
   }
 
   export type PatientMaxAggregateInputType = {
@@ -2296,6 +2300,7 @@ export namespace Prisma {
     firstTreatmentHere?: true
     note?: true
     filterNo?: true
+    schedule?: true
   }
 
   export type PatientCountAggregateInputType = {
@@ -2316,6 +2321,7 @@ export namespace Prisma {
     firstTreatmentHere?: true
     note?: true
     filterNo?: true
+    schedule?: true
     _all?: true
   }
 
@@ -2423,6 +2429,7 @@ export namespace Prisma {
     firstTreatmentHere: string | null
     note: string | null
     filterNo: string | null
+    schedule: string | null
     _count: PatientCountAggregateOutputType | null
     _avg: PatientAvgAggregateOutputType | null
     _sum: PatientSumAggregateOutputType | null
@@ -2462,6 +2469,7 @@ export namespace Prisma {
     firstTreatmentHere?: boolean
     note?: boolean
     filterNo?: boolean
+    schedule?: boolean
     files?: boolean | patient$filesArgs<ExtArgs>
     sessions?: boolean | patient$sessionsArgs<ExtArgs>
     _count?: boolean | PatientCountOutputTypeDefaultArgs<ExtArgs>
@@ -2487,9 +2495,10 @@ export namespace Prisma {
     firstTreatmentHere?: boolean
     note?: boolean
     filterNo?: boolean
+    schedule?: boolean
   }
 
-  export type patientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patientName" | "residentialId" | "age" | "birthDate" | "phoneNumber" | "address" | "bloodType" | "hight" | "weight" | "social" | "gender" | "sicknessCause" | "firstEverTreatment" | "firstTreatmentHere" | "note" | "filterNo", ExtArgs["result"]["patient"]>
+  export type patientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patientName" | "residentialId" | "age" | "birthDate" | "phoneNumber" | "address" | "bloodType" | "hight" | "weight" | "social" | "gender" | "sicknessCause" | "firstEverTreatment" | "firstTreatmentHere" | "note" | "filterNo" | "schedule", ExtArgs["result"]["patient"]>
   export type patientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     files?: boolean | patient$filesArgs<ExtArgs>
     sessions?: boolean | patient$sessionsArgs<ExtArgs>
@@ -2520,6 +2529,7 @@ export namespace Prisma {
       firstTreatmentHere: string | null
       note: string | null
       filterNo: string | null
+      schedule: string | null
     }, ExtArgs["result"]["patient"]>
     composites: {}
   }
@@ -2908,6 +2918,7 @@ export namespace Prisma {
     readonly firstTreatmentHere: FieldRef<"patient", 'String'>
     readonly note: FieldRef<"patient", 'String'>
     readonly filterNo: FieldRef<"patient", 'String'>
+    readonly schedule: FieldRef<"patient", 'String'>
   }
     
 
@@ -4335,11 +4346,13 @@ export namespace Prisma {
 
   export type SessionAvgAggregateOutputType = {
     id: number | null
+    balance: number | null
     patientId: number | null
   }
 
   export type SessionSumAggregateOutputType = {
     id: number | null
+    balance: number | null
     patientId: number | null
   }
 
@@ -4362,6 +4375,9 @@ export namespace Prisma {
     heparinRate: string | null
     heparinBolus: string | null
     UFGoal: string | null
+    intake: string | null
+    output: string | null
+    balance: number | null
     patientId: number | null
   }
 
@@ -4384,6 +4400,9 @@ export namespace Prisma {
     heparinRate: string | null
     heparinBolus: string | null
     UFGoal: string | null
+    intake: string | null
+    output: string | null
+    balance: number | null
     patientId: number | null
   }
 
@@ -4406,6 +4425,9 @@ export namespace Prisma {
     heparinRate: number
     heparinBolus: number
     UFGoal: number
+    intake: number
+    output: number
+    balance: number
     patientId: number
     _all: number
   }
@@ -4413,11 +4435,13 @@ export namespace Prisma {
 
   export type SessionAvgAggregateInputType = {
     id?: true
+    balance?: true
     patientId?: true
   }
 
   export type SessionSumAggregateInputType = {
     id?: true
+    balance?: true
     patientId?: true
   }
 
@@ -4440,6 +4464,9 @@ export namespace Prisma {
     heparinRate?: true
     heparinBolus?: true
     UFGoal?: true
+    intake?: true
+    output?: true
+    balance?: true
     patientId?: true
   }
 
@@ -4462,6 +4489,9 @@ export namespace Prisma {
     heparinRate?: true
     heparinBolus?: true
     UFGoal?: true
+    intake?: true
+    output?: true
+    balance?: true
     patientId?: true
   }
 
@@ -4484,6 +4514,9 @@ export namespace Prisma {
     heparinRate?: true
     heparinBolus?: true
     UFGoal?: true
+    intake?: true
+    output?: true
+    balance?: true
     patientId?: true
     _all?: true
   }
@@ -4593,6 +4626,9 @@ export namespace Prisma {
     heparinRate: string | null
     heparinBolus: string | null
     UFGoal: string | null
+    intake: string | null
+    output: string | null
+    balance: number | null
     patientId: number
     _count: SessionCountAggregateOutputType | null
     _avg: SessionAvgAggregateOutputType | null
@@ -4634,6 +4670,9 @@ export namespace Prisma {
     heparinRate?: boolean
     heparinBolus?: boolean
     UFGoal?: boolean
+    intake?: boolean
+    output?: boolean
+    balance?: boolean
     patientId?: boolean
     patient?: boolean | patientDefaultArgs<ExtArgs>
     hours?: boolean | session$hoursArgs<ExtArgs>
@@ -4661,10 +4700,13 @@ export namespace Prisma {
     heparinRate?: boolean
     heparinBolus?: boolean
     UFGoal?: boolean
+    intake?: boolean
+    output?: boolean
+    balance?: boolean
     patientId?: boolean
   }
 
-  export type sessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "date" | "day" | "techName" | "deviceNo" | "sessionType" | "sessionDuration" | "startingTime" | "anticoagulantUsed" | "ktv" | "urr" | "ultrafiltrationRate" | "wtPreHD" | "wtPostHD" | "HDStarting" | "heparinRate" | "heparinBolus" | "UFGoal" | "patientId", ExtArgs["result"]["session"]>
+  export type sessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "date" | "day" | "techName" | "deviceNo" | "sessionType" | "sessionDuration" | "startingTime" | "anticoagulantUsed" | "ktv" | "urr" | "ultrafiltrationRate" | "wtPreHD" | "wtPostHD" | "HDStarting" | "heparinRate" | "heparinBolus" | "UFGoal" | "intake" | "output" | "balance" | "patientId", ExtArgs["result"]["session"]>
   export type sessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     patient?: boolean | patientDefaultArgs<ExtArgs>
     hours?: boolean | session$hoursArgs<ExtArgs>
@@ -4696,6 +4738,9 @@ export namespace Prisma {
       heparinRate: string | null
       heparinBolus: string | null
       UFGoal: string | null
+      intake: string | null
+      output: string | null
+      balance: number | null
       patientId: number
     }, ExtArgs["result"]["session"]>
     composites: {}
@@ -5086,6 +5131,9 @@ export namespace Prisma {
     readonly heparinRate: FieldRef<"session", 'String'>
     readonly heparinBolus: FieldRef<"session", 'String'>
     readonly UFGoal: FieldRef<"session", 'String'>
+    readonly intake: FieldRef<"session", 'String'>
+    readonly output: FieldRef<"session", 'String'>
+    readonly balance: FieldRef<"session", 'Int'>
     readonly patientId: FieldRef<"session", 'Int'>
   }
     
@@ -5486,11 +5534,15 @@ export namespace Prisma {
 
   export type SessionHoursAvgAggregateOutputType = {
     id: number | null
+    systolicBP: number | null
+    diastolicBP: number | null
     sessionId: number | null
   }
 
   export type SessionHoursSumAggregateOutputType = {
     id: number | null
+    systolicBP: number | null
+    diastolicBP: number | null
     sessionId: number | null
   }
 
@@ -5498,6 +5550,8 @@ export namespace Prisma {
     id: number | null
     time: string | null
     bloodPressure: string | null
+    systolicBP: number | null
+    diastolicBP: number | null
     rbs: string | null
     ivf: string | null
     drugs: string | null
@@ -5514,6 +5568,8 @@ export namespace Prisma {
     id: number | null
     time: string | null
     bloodPressure: string | null
+    systolicBP: number | null
+    diastolicBP: number | null
     rbs: string | null
     ivf: string | null
     drugs: string | null
@@ -5530,6 +5586,8 @@ export namespace Prisma {
     id: number
     time: number
     bloodPressure: number
+    systolicBP: number
+    diastolicBP: number
     rbs: number
     ivf: number
     drugs: number
@@ -5546,11 +5604,15 @@ export namespace Prisma {
 
   export type SessionHoursAvgAggregateInputType = {
     id?: true
+    systolicBP?: true
+    diastolicBP?: true
     sessionId?: true
   }
 
   export type SessionHoursSumAggregateInputType = {
     id?: true
+    systolicBP?: true
+    diastolicBP?: true
     sessionId?: true
   }
 
@@ -5558,6 +5620,8 @@ export namespace Prisma {
     id?: true
     time?: true
     bloodPressure?: true
+    systolicBP?: true
+    diastolicBP?: true
     rbs?: true
     ivf?: true
     drugs?: true
@@ -5574,6 +5638,8 @@ export namespace Prisma {
     id?: true
     time?: true
     bloodPressure?: true
+    systolicBP?: true
+    diastolicBP?: true
     rbs?: true
     ivf?: true
     drugs?: true
@@ -5590,6 +5656,8 @@ export namespace Prisma {
     id?: true
     time?: true
     bloodPressure?: true
+    systolicBP?: true
+    diastolicBP?: true
     rbs?: true
     ivf?: true
     drugs?: true
@@ -5693,6 +5761,8 @@ export namespace Prisma {
     id: number
     time: string | null
     bloodPressure: string | null
+    systolicBP: number | null
+    diastolicBP: number | null
     rbs: string | null
     ivf: string | null
     drugs: string | null
@@ -5728,6 +5798,8 @@ export namespace Prisma {
     id?: boolean
     time?: boolean
     bloodPressure?: boolean
+    systolicBP?: boolean
+    diastolicBP?: boolean
     rbs?: boolean
     ivf?: boolean
     drugs?: boolean
@@ -5747,6 +5819,8 @@ export namespace Prisma {
     id?: boolean
     time?: boolean
     bloodPressure?: boolean
+    systolicBP?: boolean
+    diastolicBP?: boolean
     rbs?: boolean
     ivf?: boolean
     drugs?: boolean
@@ -5759,7 +5833,7 @@ export namespace Prisma {
     sessionId?: boolean
   }
 
-  export type sessionHoursOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "time" | "bloodPressure" | "rbs" | "ivf" | "drugs" | "cramps" | "vomitting" | "hematoma" | "chestPain" | "pulseRate" | "temperature" | "sessionId", ExtArgs["result"]["sessionHours"]>
+  export type sessionHoursOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "time" | "bloodPressure" | "systolicBP" | "diastolicBP" | "rbs" | "ivf" | "drugs" | "cramps" | "vomitting" | "hematoma" | "chestPain" | "pulseRate" | "temperature" | "sessionId", ExtArgs["result"]["sessionHours"]>
   export type sessionHoursInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     session?: boolean | sessionDefaultArgs<ExtArgs>
   }
@@ -5773,6 +5847,8 @@ export namespace Prisma {
       id: number
       time: string | null
       bloodPressure: string | null
+      systolicBP: number | null
+      diastolicBP: number | null
       rbs: string | null
       ivf: string | null
       drugs: string | null
@@ -6156,6 +6232,8 @@ export namespace Prisma {
     readonly id: FieldRef<"sessionHours", 'Int'>
     readonly time: FieldRef<"sessionHours", 'String'>
     readonly bloodPressure: FieldRef<"sessionHours", 'String'>
+    readonly systolicBP: FieldRef<"sessionHours", 'Int'>
+    readonly diastolicBP: FieldRef<"sessionHours", 'Int'>
     readonly rbs: FieldRef<"sessionHours", 'String'>
     readonly ivf: FieldRef<"sessionHours", 'String'>
     readonly drugs: FieldRef<"sessionHours", 'String'>
@@ -6568,7 +6646,8 @@ export namespace Prisma {
     firstEverTreatment: 'firstEverTreatment',
     firstTreatmentHere: 'firstTreatmentHere',
     note: 'note',
-    filterNo: 'filterNo'
+    filterNo: 'filterNo',
+    schedule: 'schedule'
   };
 
   export type PatientScalarFieldEnum = (typeof PatientScalarFieldEnum)[keyof typeof PatientScalarFieldEnum]
@@ -6607,6 +6686,9 @@ export namespace Prisma {
     heparinRate: 'heparinRate',
     heparinBolus: 'heparinBolus',
     UFGoal: 'UFGoal',
+    intake: 'intake',
+    output: 'output',
+    balance: 'balance',
     patientId: 'patientId'
   };
 
@@ -6617,6 +6699,8 @@ export namespace Prisma {
     id: 'id',
     time: 'time',
     bloodPressure: 'bloodPressure',
+    systolicBP: 'systolicBP',
+    diastolicBP: 'diastolicBP',
     rbs: 'rbs',
     ivf: 'ivf',
     drugs: 'drugs',
@@ -6673,7 +6757,8 @@ export namespace Prisma {
     firstEverTreatment: 'firstEverTreatment',
     firstTreatmentHere: 'firstTreatmentHere',
     note: 'note',
-    filterNo: 'filterNo'
+    filterNo: 'filterNo',
+    schedule: 'schedule'
   };
 
   export type patientOrderByRelevanceFieldEnum = (typeof patientOrderByRelevanceFieldEnum)[keyof typeof patientOrderByRelevanceFieldEnum]
@@ -6706,7 +6791,9 @@ export namespace Prisma {
     HDStarting: 'HDStarting',
     heparinRate: 'heparinRate',
     heparinBolus: 'heparinBolus',
-    UFGoal: 'UFGoal'
+    UFGoal: 'UFGoal',
+    intake: 'intake',
+    output: 'output'
   };
 
   export type sessionOrderByRelevanceFieldEnum = (typeof sessionOrderByRelevanceFieldEnum)[keyof typeof sessionOrderByRelevanceFieldEnum]
@@ -6836,6 +6923,7 @@ export namespace Prisma {
     firstTreatmentHere?: StringNullableFilter<"patient"> | string | null
     note?: StringNullableFilter<"patient"> | string | null
     filterNo?: StringNullableFilter<"patient"> | string | null
+    schedule?: StringNullableFilter<"patient"> | string | null
     files?: FileListRelationFilter
     sessions?: SessionListRelationFilter
   }
@@ -6858,6 +6946,7 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrderInput | SortOrder
     note?: SortOrderInput | SortOrder
     filterNo?: SortOrderInput | SortOrder
+    schedule?: SortOrderInput | SortOrder
     files?: fileOrderByRelationAggregateInput
     sessions?: sessionOrderByRelationAggregateInput
     _relevance?: patientOrderByRelevanceInput
@@ -6884,6 +6973,7 @@ export namespace Prisma {
     firstTreatmentHere?: StringNullableFilter<"patient"> | string | null
     note?: StringNullableFilter<"patient"> | string | null
     filterNo?: StringNullableFilter<"patient"> | string | null
+    schedule?: StringNullableFilter<"patient"> | string | null
     files?: FileListRelationFilter
     sessions?: SessionListRelationFilter
   }, "id" | "id">
@@ -6906,6 +6996,7 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrderInput | SortOrder
     note?: SortOrderInput | SortOrder
     filterNo?: SortOrderInput | SortOrder
+    schedule?: SortOrderInput | SortOrder
     _count?: patientCountOrderByAggregateInput
     _avg?: patientAvgOrderByAggregateInput
     _max?: patientMaxOrderByAggregateInput
@@ -6934,6 +7025,7 @@ export namespace Prisma {
     firstTreatmentHere?: StringNullableWithAggregatesFilter<"patient"> | string | null
     note?: StringNullableWithAggregatesFilter<"patient"> | string | null
     filterNo?: StringNullableWithAggregatesFilter<"patient"> | string | null
+    schedule?: StringNullableWithAggregatesFilter<"patient"> | string | null
   }
 
   export type fileWhereInput = {
@@ -7031,6 +7123,9 @@ export namespace Prisma {
     heparinRate?: StringNullableFilter<"session"> | string | null
     heparinBolus?: StringNullableFilter<"session"> | string | null
     UFGoal?: StringNullableFilter<"session"> | string | null
+    intake?: StringNullableFilter<"session"> | string | null
+    output?: StringNullableFilter<"session"> | string | null
+    balance?: IntNullableFilter<"session"> | number | null
     patientId?: IntFilter<"session"> | number
     patient?: XOR<PatientScalarRelationFilter, patientWhereInput>
     hours?: SessionHoursListRelationFilter
@@ -7055,6 +7150,9 @@ export namespace Prisma {
     heparinRate?: SortOrderInput | SortOrder
     heparinBolus?: SortOrderInput | SortOrder
     UFGoal?: SortOrderInput | SortOrder
+    intake?: SortOrderInput | SortOrder
+    output?: SortOrderInput | SortOrder
+    balance?: SortOrderInput | SortOrder
     patientId?: SortOrder
     patient?: patientOrderByWithRelationInput
     hours?: sessionHoursOrderByRelationAggregateInput
@@ -7083,6 +7181,9 @@ export namespace Prisma {
     heparinRate?: StringNullableFilter<"session"> | string | null
     heparinBolus?: StringNullableFilter<"session"> | string | null
     UFGoal?: StringNullableFilter<"session"> | string | null
+    intake?: StringNullableFilter<"session"> | string | null
+    output?: StringNullableFilter<"session"> | string | null
+    balance?: IntNullableFilter<"session"> | number | null
     patientId?: IntFilter<"session"> | number
     patient?: XOR<PatientScalarRelationFilter, patientWhereInput>
     hours?: SessionHoursListRelationFilter
@@ -7107,6 +7208,9 @@ export namespace Prisma {
     heparinRate?: SortOrderInput | SortOrder
     heparinBolus?: SortOrderInput | SortOrder
     UFGoal?: SortOrderInput | SortOrder
+    intake?: SortOrderInput | SortOrder
+    output?: SortOrderInput | SortOrder
+    balance?: SortOrderInput | SortOrder
     patientId?: SortOrder
     _count?: sessionCountOrderByAggregateInput
     _avg?: sessionAvgOrderByAggregateInput
@@ -7137,6 +7241,9 @@ export namespace Prisma {
     heparinRate?: StringNullableWithAggregatesFilter<"session"> | string | null
     heparinBolus?: StringNullableWithAggregatesFilter<"session"> | string | null
     UFGoal?: StringNullableWithAggregatesFilter<"session"> | string | null
+    intake?: StringNullableWithAggregatesFilter<"session"> | string | null
+    output?: StringNullableWithAggregatesFilter<"session"> | string | null
+    balance?: IntNullableWithAggregatesFilter<"session"> | number | null
     patientId?: IntWithAggregatesFilter<"session"> | number
   }
 
@@ -7147,6 +7254,8 @@ export namespace Prisma {
     id?: IntFilter<"sessionHours"> | number
     time?: StringNullableFilter<"sessionHours"> | string | null
     bloodPressure?: StringNullableFilter<"sessionHours"> | string | null
+    systolicBP?: IntNullableFilter<"sessionHours"> | number | null
+    diastolicBP?: IntNullableFilter<"sessionHours"> | number | null
     rbs?: StringNullableFilter<"sessionHours"> | string | null
     ivf?: StringNullableFilter<"sessionHours"> | string | null
     drugs?: StringNullableFilter<"sessionHours"> | string | null
@@ -7164,6 +7273,8 @@ export namespace Prisma {
     id?: SortOrder
     time?: SortOrderInput | SortOrder
     bloodPressure?: SortOrderInput | SortOrder
+    systolicBP?: SortOrderInput | SortOrder
+    diastolicBP?: SortOrderInput | SortOrder
     rbs?: SortOrderInput | SortOrder
     ivf?: SortOrderInput | SortOrder
     drugs?: SortOrderInput | SortOrder
@@ -7185,6 +7296,8 @@ export namespace Prisma {
     NOT?: sessionHoursWhereInput | sessionHoursWhereInput[]
     time?: StringNullableFilter<"sessionHours"> | string | null
     bloodPressure?: StringNullableFilter<"sessionHours"> | string | null
+    systolicBP?: IntNullableFilter<"sessionHours"> | number | null
+    diastolicBP?: IntNullableFilter<"sessionHours"> | number | null
     rbs?: StringNullableFilter<"sessionHours"> | string | null
     ivf?: StringNullableFilter<"sessionHours"> | string | null
     drugs?: StringNullableFilter<"sessionHours"> | string | null
@@ -7202,6 +7315,8 @@ export namespace Prisma {
     id?: SortOrder
     time?: SortOrderInput | SortOrder
     bloodPressure?: SortOrderInput | SortOrder
+    systolicBP?: SortOrderInput | SortOrder
+    diastolicBP?: SortOrderInput | SortOrder
     rbs?: SortOrderInput | SortOrder
     ivf?: SortOrderInput | SortOrder
     drugs?: SortOrderInput | SortOrder
@@ -7226,6 +7341,8 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"sessionHours"> | number
     time?: StringNullableWithAggregatesFilter<"sessionHours"> | string | null
     bloodPressure?: StringNullableWithAggregatesFilter<"sessionHours"> | string | null
+    systolicBP?: IntNullableWithAggregatesFilter<"sessionHours"> | number | null
+    diastolicBP?: IntNullableWithAggregatesFilter<"sessionHours"> | number | null
     rbs?: StringNullableWithAggregatesFilter<"sessionHours"> | string | null
     ivf?: StringNullableWithAggregatesFilter<"sessionHours"> | string | null
     drugs?: StringNullableWithAggregatesFilter<"sessionHours"> | string | null
@@ -7301,6 +7418,7 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    schedule?: string | null
     files?: fileCreateNestedManyWithoutPatientInput
     sessions?: sessionCreateNestedManyWithoutPatientInput
   }
@@ -7323,6 +7441,7 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    schedule?: string | null
     files?: fileUncheckedCreateNestedManyWithoutPatientInput
     sessions?: sessionUncheckedCreateNestedManyWithoutPatientInput
   }
@@ -7344,6 +7463,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUpdateManyWithoutPatientNestedInput
     sessions?: sessionUpdateManyWithoutPatientNestedInput
   }
@@ -7366,6 +7486,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUncheckedUpdateManyWithoutPatientNestedInput
     sessions?: sessionUncheckedUpdateManyWithoutPatientNestedInput
   }
@@ -7388,6 +7509,7 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    schedule?: string | null
   }
 
   export type patientUpdateManyMutationInput = {
@@ -7407,6 +7529,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type patientUncheckedUpdateManyInput = {
@@ -7427,6 +7550,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type fileCreateInput = {
@@ -7520,6 +7644,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
     patient: patientCreateNestedOneWithoutSessionsInput
     hours?: sessionHoursCreateNestedManyWithoutSessionInput
   }
@@ -7543,6 +7670,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
     patientId: number
     hours?: sessionHoursUncheckedCreateNestedManyWithoutSessionInput
   }
@@ -7565,6 +7695,9 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
     patient?: patientUpdateOneRequiredWithoutSessionsNestedInput
     hours?: sessionHoursUpdateManyWithoutSessionNestedInput
   }
@@ -7588,6 +7721,9 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
     patientId?: IntFieldUpdateOperationsInput | number
     hours?: sessionHoursUncheckedUpdateManyWithoutSessionNestedInput
   }
@@ -7611,6 +7747,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
     patientId: number
   }
 
@@ -7632,6 +7771,9 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type sessionUncheckedUpdateManyInput = {
@@ -7653,12 +7795,17 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
     patientId?: IntFieldUpdateOperationsInput | number
   }
 
   export type sessionHoursCreateInput = {
     time?: string | null
     bloodPressure?: string | null
+    systolicBP?: number | null
+    diastolicBP?: number | null
     rbs?: string | null
     ivf?: string | null
     drugs?: string | null
@@ -7675,6 +7822,8 @@ export namespace Prisma {
     id?: number
     time?: string | null
     bloodPressure?: string | null
+    systolicBP?: number | null
+    diastolicBP?: number | null
     rbs?: string | null
     ivf?: string | null
     drugs?: string | null
@@ -7690,6 +7839,8 @@ export namespace Prisma {
   export type sessionHoursUpdateInput = {
     time?: NullableStringFieldUpdateOperationsInput | string | null
     bloodPressure?: NullableStringFieldUpdateOperationsInput | string | null
+    systolicBP?: NullableIntFieldUpdateOperationsInput | number | null
+    diastolicBP?: NullableIntFieldUpdateOperationsInput | number | null
     rbs?: NullableStringFieldUpdateOperationsInput | string | null
     ivf?: NullableStringFieldUpdateOperationsInput | string | null
     drugs?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7706,6 +7857,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     time?: NullableStringFieldUpdateOperationsInput | string | null
     bloodPressure?: NullableStringFieldUpdateOperationsInput | string | null
+    systolicBP?: NullableIntFieldUpdateOperationsInput | number | null
+    diastolicBP?: NullableIntFieldUpdateOperationsInput | number | null
     rbs?: NullableStringFieldUpdateOperationsInput | string | null
     ivf?: NullableStringFieldUpdateOperationsInput | string | null
     drugs?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7722,6 +7875,8 @@ export namespace Prisma {
     id?: number
     time?: string | null
     bloodPressure?: string | null
+    systolicBP?: number | null
+    diastolicBP?: number | null
     rbs?: string | null
     ivf?: string | null
     drugs?: string | null
@@ -7737,6 +7892,8 @@ export namespace Prisma {
   export type sessionHoursUpdateManyMutationInput = {
     time?: NullableStringFieldUpdateOperationsInput | string | null
     bloodPressure?: NullableStringFieldUpdateOperationsInput | string | null
+    systolicBP?: NullableIntFieldUpdateOperationsInput | number | null
+    diastolicBP?: NullableIntFieldUpdateOperationsInput | number | null
     rbs?: NullableStringFieldUpdateOperationsInput | string | null
     ivf?: NullableStringFieldUpdateOperationsInput | string | null
     drugs?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7752,6 +7909,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     time?: NullableStringFieldUpdateOperationsInput | string | null
     bloodPressure?: NullableStringFieldUpdateOperationsInput | string | null
+    systolicBP?: NullableIntFieldUpdateOperationsInput | number | null
+    diastolicBP?: NullableIntFieldUpdateOperationsInput | number | null
     rbs?: NullableStringFieldUpdateOperationsInput | string | null
     ivf?: NullableStringFieldUpdateOperationsInput | string | null
     drugs?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7941,6 +8100,7 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrder
     note?: SortOrder
     filterNo?: SortOrder
+    schedule?: SortOrder
   }
 
   export type patientAvgOrderByAggregateInput = {
@@ -7965,6 +8125,7 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrder
     note?: SortOrder
     filterNo?: SortOrder
+    schedule?: SortOrder
   }
 
   export type patientMinOrderByAggregateInput = {
@@ -7985,6 +8146,7 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrder
     note?: SortOrder
     filterNo?: SortOrder
+    schedule?: SortOrder
   }
 
   export type patientSumOrderByAggregateInput = {
@@ -8072,6 +8234,17 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type SessionHoursListRelationFilter = {
     every?: sessionHoursWhereInput
     some?: sessionHoursWhereInput
@@ -8107,11 +8280,15 @@ export namespace Prisma {
     heparinRate?: SortOrder
     heparinBolus?: SortOrder
     UFGoal?: SortOrder
+    intake?: SortOrder
+    output?: SortOrder
+    balance?: SortOrder
     patientId?: SortOrder
   }
 
   export type sessionAvgOrderByAggregateInput = {
     id?: SortOrder
+    balance?: SortOrder
     patientId?: SortOrder
   }
 
@@ -8134,6 +8311,9 @@ export namespace Prisma {
     heparinRate?: SortOrder
     heparinBolus?: SortOrder
     UFGoal?: SortOrder
+    intake?: SortOrder
+    output?: SortOrder
+    balance?: SortOrder
     patientId?: SortOrder
   }
 
@@ -8156,12 +8336,32 @@ export namespace Prisma {
     heparinRate?: SortOrder
     heparinBolus?: SortOrder
     UFGoal?: SortOrder
+    intake?: SortOrder
+    output?: SortOrder
+    balance?: SortOrder
     patientId?: SortOrder
   }
 
   export type sessionSumOrderByAggregateInput = {
     id?: SortOrder
+    balance?: SortOrder
     patientId?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type SessionScalarRelationFilter = {
@@ -8179,6 +8379,8 @@ export namespace Prisma {
     id?: SortOrder
     time?: SortOrder
     bloodPressure?: SortOrder
+    systolicBP?: SortOrder
+    diastolicBP?: SortOrder
     rbs?: SortOrder
     ivf?: SortOrder
     drugs?: SortOrder
@@ -8193,6 +8395,8 @@ export namespace Prisma {
 
   export type sessionHoursAvgOrderByAggregateInput = {
     id?: SortOrder
+    systolicBP?: SortOrder
+    diastolicBP?: SortOrder
     sessionId?: SortOrder
   }
 
@@ -8200,6 +8404,8 @@ export namespace Prisma {
     id?: SortOrder
     time?: SortOrder
     bloodPressure?: SortOrder
+    systolicBP?: SortOrder
+    diastolicBP?: SortOrder
     rbs?: SortOrder
     ivf?: SortOrder
     drugs?: SortOrder
@@ -8216,6 +8422,8 @@ export namespace Prisma {
     id?: SortOrder
     time?: SortOrder
     bloodPressure?: SortOrder
+    systolicBP?: SortOrder
+    diastolicBP?: SortOrder
     rbs?: SortOrder
     ivf?: SortOrder
     drugs?: SortOrder
@@ -8230,6 +8438,8 @@ export namespace Prisma {
 
   export type sessionHoursSumOrderByAggregateInput = {
     id?: SortOrder
+    systolicBP?: SortOrder
+    diastolicBP?: SortOrder
     sessionId?: SortOrder
   }
 
@@ -8369,6 +8579,14 @@ export namespace Prisma {
     connectOrCreate?: sessionHoursCreateOrConnectWithoutSessionInput | sessionHoursCreateOrConnectWithoutSessionInput[]
     createMany?: sessionHoursCreateManySessionInputEnvelope
     connect?: sessionHoursWhereUniqueInput | sessionHoursWhereUniqueInput[]
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type patientUpdateOneRequiredWithoutSessionsNestedInput = {
@@ -8561,6 +8779,33 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type fileCreateWithoutPatientInput = {
     originalName: string
     storedName: string
@@ -8608,6 +8853,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
     hours?: sessionHoursCreateNestedManyWithoutSessionInput
   }
 
@@ -8630,6 +8878,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
     hours?: sessionHoursUncheckedCreateNestedManyWithoutSessionInput
   }
 
@@ -8711,6 +8962,9 @@ export namespace Prisma {
     heparinRate?: StringNullableFilter<"session"> | string | null
     heparinBolus?: StringNullableFilter<"session"> | string | null
     UFGoal?: StringNullableFilter<"session"> | string | null
+    intake?: StringNullableFilter<"session"> | string | null
+    output?: StringNullableFilter<"session"> | string | null
+    balance?: IntNullableFilter<"session"> | number | null
     patientId?: IntFilter<"session"> | number
   }
 
@@ -8731,6 +8985,7 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    schedule?: string | null
     sessions?: sessionCreateNestedManyWithoutPatientInput
   }
 
@@ -8752,6 +9007,7 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    schedule?: string | null
     sessions?: sessionUncheckedCreateNestedManyWithoutPatientInput
   }
 
@@ -8788,6 +9044,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: sessionUpdateManyWithoutPatientNestedInput
   }
 
@@ -8809,6 +9066,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: sessionUncheckedUpdateManyWithoutPatientNestedInput
   }
 
@@ -8829,6 +9087,7 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    schedule?: string | null
     files?: fileCreateNestedManyWithoutPatientInput
   }
 
@@ -8850,6 +9109,7 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    schedule?: string | null
     files?: fileUncheckedCreateNestedManyWithoutPatientInput
   }
 
@@ -8861,6 +9121,8 @@ export namespace Prisma {
   export type sessionHoursCreateWithoutSessionInput = {
     time?: string | null
     bloodPressure?: string | null
+    systolicBP?: number | null
+    diastolicBP?: number | null
     rbs?: string | null
     ivf?: string | null
     drugs?: string | null
@@ -8876,6 +9138,8 @@ export namespace Prisma {
     id?: number
     time?: string | null
     bloodPressure?: string | null
+    systolicBP?: number | null
+    diastolicBP?: number | null
     rbs?: string | null
     ivf?: string | null
     drugs?: string | null
@@ -8925,6 +9189,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUpdateManyWithoutPatientNestedInput
   }
 
@@ -8946,6 +9211,7 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUncheckedUpdateManyWithoutPatientNestedInput
   }
 
@@ -8972,6 +9238,8 @@ export namespace Prisma {
     id?: IntFilter<"sessionHours"> | number
     time?: StringNullableFilter<"sessionHours"> | string | null
     bloodPressure?: StringNullableFilter<"sessionHours"> | string | null
+    systolicBP?: IntNullableFilter<"sessionHours"> | number | null
+    diastolicBP?: IntNullableFilter<"sessionHours"> | number | null
     rbs?: StringNullableFilter<"sessionHours"> | string | null
     ivf?: StringNullableFilter<"sessionHours"> | string | null
     drugs?: StringNullableFilter<"sessionHours"> | string | null
@@ -9002,6 +9270,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
     patient: patientCreateNestedOneWithoutSessionsInput
   }
 
@@ -9024,6 +9295,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
     patientId: number
   }
 
@@ -9061,6 +9335,9 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
     patient?: patientUpdateOneRequiredWithoutSessionsNestedInput
   }
 
@@ -9083,6 +9360,9 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
     patientId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -9115,6 +9395,9 @@ export namespace Prisma {
     heparinRate?: string | null
     heparinBolus?: string | null
     UFGoal?: string | null
+    intake?: string | null
+    output?: string | null
+    balance?: number | null
   }
 
   export type fileUpdateWithoutPatientInput = {
@@ -9164,6 +9447,9 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
     hours?: sessionHoursUpdateManyWithoutSessionNestedInput
   }
 
@@ -9186,6 +9472,9 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
     hours?: sessionHoursUncheckedUpdateManyWithoutSessionNestedInput
   }
 
@@ -9208,12 +9497,17 @@ export namespace Prisma {
     heparinRate?: NullableStringFieldUpdateOperationsInput | string | null
     heparinBolus?: NullableStringFieldUpdateOperationsInput | string | null
     UFGoal?: NullableStringFieldUpdateOperationsInput | string | null
+    intake?: NullableStringFieldUpdateOperationsInput | string | null
+    output?: NullableStringFieldUpdateOperationsInput | string | null
+    balance?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type sessionHoursCreateManySessionInput = {
     id?: number
     time?: string | null
     bloodPressure?: string | null
+    systolicBP?: number | null
+    diastolicBP?: number | null
     rbs?: string | null
     ivf?: string | null
     drugs?: string | null
@@ -9228,6 +9522,8 @@ export namespace Prisma {
   export type sessionHoursUpdateWithoutSessionInput = {
     time?: NullableStringFieldUpdateOperationsInput | string | null
     bloodPressure?: NullableStringFieldUpdateOperationsInput | string | null
+    systolicBP?: NullableIntFieldUpdateOperationsInput | number | null
+    diastolicBP?: NullableIntFieldUpdateOperationsInput | number | null
     rbs?: NullableStringFieldUpdateOperationsInput | string | null
     ivf?: NullableStringFieldUpdateOperationsInput | string | null
     drugs?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9243,6 +9539,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     time?: NullableStringFieldUpdateOperationsInput | string | null
     bloodPressure?: NullableStringFieldUpdateOperationsInput | string | null
+    systolicBP?: NullableIntFieldUpdateOperationsInput | number | null
+    diastolicBP?: NullableIntFieldUpdateOperationsInput | number | null
     rbs?: NullableStringFieldUpdateOperationsInput | string | null
     ivf?: NullableStringFieldUpdateOperationsInput | string | null
     drugs?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9258,6 +9556,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     time?: NullableStringFieldUpdateOperationsInput | string | null
     bloodPressure?: NullableStringFieldUpdateOperationsInput | string | null
+    systolicBP?: NullableIntFieldUpdateOperationsInput | number | null
+    diastolicBP?: NullableIntFieldUpdateOperationsInput | number | null
     rbs?: NullableStringFieldUpdateOperationsInput | string | null
     ivf?: NullableStringFieldUpdateOperationsInput | string | null
     drugs?: NullableStringFieldUpdateOperationsInput | string | null

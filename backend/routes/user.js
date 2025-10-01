@@ -53,7 +53,7 @@ userRoute.post('/login', async (req, res) => {
 
   if (!admin) {
     const salt = await bcrypt.genSalt(10)
-    const hash = await bcrypt.hash('admin1q2w3e', salt)
+    const hash = await bcrypt.hash('admin', salt)
 
     const newuser = await prisma.user.create({
       data: {

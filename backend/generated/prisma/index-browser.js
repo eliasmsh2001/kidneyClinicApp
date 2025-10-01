@@ -144,7 +144,8 @@ exports.Prisma.PatientScalarFieldEnum = {
   firstEverTreatment: 'firstEverTreatment',
   firstTreatmentHere: 'firstTreatmentHere',
   note: 'note',
-  filterNo: 'filterNo'
+  filterNo: 'filterNo',
+  schedule: 'schedule'
 };
 
 exports.Prisma.FileScalarFieldEnum = {
@@ -177,6 +178,9 @@ exports.Prisma.SessionScalarFieldEnum = {
   heparinRate: 'heparinRate',
   heparinBolus: 'heparinBolus',
   UFGoal: 'UFGoal',
+  intake: 'intake',
+  output: 'output',
+  balance: 'balance',
   patientId: 'patientId'
 };
 
@@ -184,6 +188,8 @@ exports.Prisma.SessionHoursScalarFieldEnum = {
   id: 'id',
   time: 'time',
   bloodPressure: 'bloodPressure',
+  systolicBP: 'systolicBP',
+  diastolicBP: 'diastolicBP',
   rbs: 'rbs',
   ivf: 'ivf',
   drugs: 'drugs',
@@ -228,7 +234,8 @@ exports.Prisma.patientOrderByRelevanceFieldEnum = {
   firstEverTreatment: 'firstEverTreatment',
   firstTreatmentHere: 'firstTreatmentHere',
   note: 'note',
-  filterNo: 'filterNo'
+  filterNo: 'filterNo',
+  schedule: 'schedule'
 };
 
 exports.Prisma.fileOrderByRelevanceFieldEnum = {
@@ -255,7 +262,9 @@ exports.Prisma.sessionOrderByRelevanceFieldEnum = {
   HDStarting: 'HDStarting',
   heparinRate: 'heparinRate',
   heparinBolus: 'heparinBolus',
-  UFGoal: 'UFGoal'
+  UFGoal: 'UFGoal',
+  intake: 'intake',
+  output: 'output'
 };
 
 exports.Prisma.sessionHoursOrderByRelevanceFieldEnum = {

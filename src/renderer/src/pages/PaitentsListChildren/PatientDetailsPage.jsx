@@ -24,7 +24,7 @@ const PatientDetailsPage = () => {
   const btns = [
     {
       key: 1,
-      title: 'المواعيد',
+      title: 'SESSIONS',
       style: clsx(' py-2 px-10  font-bold text-xs', {
         'bg-white text-mainText rounded-t-lg':
           location.pathname === `/patientsList/patientDetails/${id}`,
@@ -34,7 +34,7 @@ const PatientDetailsPage = () => {
     },
     {
       key: 2,
-      title: 'التحاليل',
+      title: 'TESTS',
       style: clsx(' py-2 px-10  font-bold text-xs', {
         'bg-white text-mainText  rounded-t-lg':
           location.pathname === `/patientsList/patientDetails/${id}/patientTests`,
@@ -45,7 +45,7 @@ const PatientDetailsPage = () => {
     },
     {
       key: 3,
-      title: 'التقرير',
+      title: 'REPORT',
       style: clsx(' py-2 px-10  font-bold text-xs', {
         'bg-white text-mainText rounded-t-lg':
           location.pathname === `/patientsList/patientDetails/${id}/patientReport`,

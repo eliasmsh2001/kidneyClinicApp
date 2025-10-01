@@ -57,7 +57,7 @@ const MainSidebar = () => {
                 'opacity-100  ': isExtended
               })}
             >
-              الرئيسية
+              Main Page
             </span>
             <HomeIcon style={{ height: 35, width: 35, fill: 'white' }} className="absolute" />
           </button>
@@ -70,7 +70,7 @@ const MainSidebar = () => {
                 'opacity-100  ': isExtended
               })}
             >
-              قائمة الحالات
+              Patients
             </span>
             <GroupsIcon style={{ height: 35, width: 35, fill: 'white' }} className="absolute" />
           </button>

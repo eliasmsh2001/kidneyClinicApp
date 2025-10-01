@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import RedoIcon from '@mui/icons-material/Redo'
 import clsx from 'clsx'
 import { useMutation } from '@tanstack/react-query'
-import { deleteSession } from '../../../util/apis/sessionsAPIs'
+import { deleteSession, editbalance } from '../../../util/apis/sessionsAPIs'
 import { queryClient } from '../../../util/apis/httpUrl'
 import { useDispatch } from 'react-redux'
 import { sessionsActions } from '../../../util/slicers/sessionsSlicer'
@@ -23,6 +23,19 @@ const SessionDetails = ({ data, setPageView }) => {
     }
   })
 
+  const { mutate: editPatientBalance } = useMutation({
+    mutationKey: ['editBalance'],
+    mutationFn: editbalance,
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['sessionDetails'] })
+    },
+
+    onError(error) {
+      // console.log(error)
+    }
+  })
+
   return (
     <section className="relative flex justify-center items-center flex-col">
       <button
@@ -32,85 +45,127 @@ const SessionDetails = ({ data, setPageView }) => {
         <RedoIcon style={{ height: 30, width: 30, fill: 'white' }} />
       </button>
 
-      <div className="flex justify-center gap-4 flex-wrap  py-2">
-        <h1 className="text-lg font-bold text-mainText">
+      <div className="flex justify-center gap-4 flex-wrap min-w-[76rem] max-w-[90rem] py-2 bg-mainText px-8 rounded-md">
+        <h1 className="text-lg font-bold text-white">
           {' '}
-          Date: <span className="text-stone-500">{data?.date}</span>
+          Date: <span className="text-stone-300">{data?.date}</span>
         </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
+        <h1 className="text-lg font-bold text-white">
           {' '}
-          Technician's name: <span className="text-stone-500">{data?.techName}</span>
+          Technician's name: <span className="text-stone-300">{data?.techName}</span>
         </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
+        <h1 className="text-lg font-bold text-white">
           {' '}
-          Device No.: <span className="text-stone-500">{data?.deviceNo}</span>
+          Device No.: <span className="text-stone-300">{data?.deviceNo}</span>
         </h1>
-      </div>
-      <div className="flex justify-center gap-4 flex-wrap border-b-2 border-mainText py-2">
-        <h1 className="text-lg font-bold text-mainText">
+        <h1 className="text-lg font-bold text-white">
           {' '}
-          Session Type: <span className="text-stone-500">{data?.sessionType}</span>
+          Session Type: <span className="text-stone-300">{data?.sessionType}</span>
         </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
+        <h1 className="text-lg font-bold text-white">
           {' '}
-          Starting Time: <span className="text-stone-500">{data?.startingTime}</span>
+          Starting Time: <span className="text-stone-300">{data?.startingTime}</span>
         </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
+        <h1 className="text-lg font-bold text-white">
           {' '}
-          Duration: <span className="text-stone-500">{data?.sessionDuration} hrs</span>
+          Duration:{' '}
+          <span className="text-stone-300">
+            {data?.sessionDuration} hr{data?.sessionDuration > 1 && 's'}
+          </span>
         </h1>
       </div>
 
-      <div className="flex justify-center gap-4 flex-wrap border-b-2 border-mainText py-4">
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          Ultrafiltration Rate: <span className="text-stone-500">{data?.ultrafiltrationRate} </span>
-        </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          KTV: <span className="text-stone-500">{data?.ktv} </span>
-        </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          URR: <span className="text-stone-500">{data?.urr} </span>
-        </h1>
-      </div>
-      <div className="flex justify-center gap-4 flex-wrap border-b-2 border-mainText py-2 w-[60rem]">
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          WT. Pre HD: <span className="text-stone-500">{data?.wtPreHD} </span>
-        </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          WT. Post HD: <span className="text-stone-500">{data?.wtPostHD} </span>
-        </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          HD. Starting: <span className="text-stone-500">{data?.HDStarting} </span>
-        </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          Hiparin Rate: <span className="text-stone-500">{data?.heparinRate} </span>
-        </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          Hiparin Bolus: <span className="text-stone-500">{data?.heparinBolus} </span>
-        </h1>
-        --
-        <h1 className="text-lg font-bold text-mainText">
-          {' '}
-          UF. Goal: <span className="text-stone-500">{data?.UFGoal} </span>
-        </h1>
+      {/* ===================================================================================================
+      ===================================================================================================
+      =================================================================================================== */}
+
+      <div className="w-[70rem] flex justify-between items-start border-b-2 border-mainText py-4">
+        <div className="flex flex-col h-44 justify-start items-start gap-4 flex-wrap ">
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            Ultrafiltration Rate:{' '}
+            <span className="text-stone-500">{data?.ultrafiltrationRate} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            KTV: <span className="text-stone-500">{data?.ktv} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            URR: <span className="text-stone-500">{data?.urr} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            WT. Pre HD: <span className="text-stone-500">{data?.wtPreHD} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            WT. Post HD: <span className="text-stone-500">{data?.wtPostHD} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            HD. Starting: <span className="text-stone-500">{data?.HDStarting} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            Hiparin Rate: <span className="text-stone-500">{data?.heparinRate} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            Hiparin Bolus: <span className="text-stone-500">{data?.heparinBolus} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
+            UF. Goal: <span className="text-stone-500">{data?.UFGoal} </span>
+          </h1>
+        </div>
+
+        <div className="py-2 flex flex-col gap-2 items-end">
+          <div className="flex items-center justify-center gap-4">
+            <label className="text-mainText font-bold text-xl" htmlFor="">
+              Patient Intake
+            </label>
+            <input
+              className="border-2 border-mainText outline-0 w-32 p-2 rounded-md"
+              type="text"
+              name=""
+              id=""
+              placeholder={data?.intake}
+              onChange={(e) =>
+                editPatientBalance({ sessionId: data?.id, field: 'intake', value: e.target.value })
+              }
+            />
+          </div>
+          <div className="flex items-center justify-center gap-4">
+            <label className="text-mainText font-bold text-xl" htmlFor="">
+              Patient Output
+            </label>
+            <input
+              className="border-2 border-mainText outline-0 w-32 p-2 rounded-md"
+              type="text"
+              name=""
+              id=""
+              placeholder={data?.output}
+              onChange={(e) =>
+                editPatientBalance({ sessionId: data?.id, field: 'output', value: e.target.value })
+              }
+            />
+          </div>
+          <div className="flex items-center justify-center gap-4 text-mainText">
+            <h1 className=" font-bold text-xl" htmlFor="">
+              Patient Balance
+            </h1>{' '}
+            --&gt;
+            <h2
+              className=" bg-mainBlue text-white text-xl text-center font-extrabold w-32 p-2 rounded-md my-4"
+              type="text"
+              name=""
+              id=""
+            >
+              {data?.balance}
+            </h2>
+          </div>
+        </div>
       </div>
 
       <table className="border-2 border-mainText mt-8">
@@ -145,9 +200,9 @@ const SessionDetails = ({ data, setPageView }) => {
               <td>{item?.ivf}</td>
               <td>{item?.drugs}</td>
               <td>{item?.vomitting}</td>
-              <td>{item?.cramps}</td>
-              <td>{item?.hematoma}</td>
-              <td>{item?.chestPain}</td>
+              <td>{item?.cramps === 'checked' ? 'tic' : ''}</td>
+              <td>{item?.hematoma === 'checked' ? 'tic' : ''}</td>
+              <td>{item?.chestPain === 'checked' ? 'tic' : ''}</td>
             </tr>
           ))}
         </tbody>

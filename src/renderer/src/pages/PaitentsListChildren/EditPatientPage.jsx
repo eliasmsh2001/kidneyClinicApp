@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { getPatientDetals } from '../../util/apis/patientsGetAPI'
 import { editPatient } from '../../util/apis/patientsPostAPIs'
@@ -13,6 +13,7 @@ const EditPatientPage = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [schedule, setSchedule] = useState('sunTueThe')
 
   const { data } = useQuery({
     queryKey: ['patients', 'patientDetails', id],
@@ -35,7 +36,7 @@ const EditPatientPage = () => {
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData.entries())
 
-    mutate({ data, id })
+    mutate({ data, id, schedule })
   }
 
   return (
@@ -46,7 +47,12 @@ const EditPatientPage = () => {
       >
         <RedoIcon style={{ height: 30, width: 30, fill: 'white' }} />
       </button>
-      <EditPatientFrom handleSubmit={handleSubmitForm} data={data} />
+      <EditPatientFrom
+        handleSubmit={handleSubmitForm}
+        data={data}
+        schedule={schedule}
+        setSchedule={setSchedule}
+      />
     </div>
   )
 }

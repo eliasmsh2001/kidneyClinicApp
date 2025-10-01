@@ -34,6 +34,7 @@ model patient {
   firstTreatmentHere String?   @db.Text
   note               String?   @db.Text
   filterNo           String?   @db.Text
+  schedule           String?
   files              file[]
   sessions           session[]
 }
@@ -69,6 +70,9 @@ model session {
   heparinRate         String?
   heparinBolus        String?
   UFGoal              String?
+  intake              String?
+  output              String?
+  balance             Int?
   patientId           Int
   patient             patient        @relation(fields: [patientId], references: [id])
   hours               sessionHours[]
@@ -78,6 +82,8 @@ model sessionHours {
   id            Int     @id @unique @default(autoincrement())
   time          String?
   bloodPressure String?
+  systolicBP    Int?
+  diastolicBP   Int?
   rbs           String?
   ivf           String?
   drugs         String?

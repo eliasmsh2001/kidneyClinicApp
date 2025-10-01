@@ -16,10 +16,13 @@ const SessionHoursSection = ({ sessionHours, editting }) => {
           <div className="flex flex-col">
             <label className="text-xs font-bold text-mainText" htmlFor="bp">
               Blood Pressure
+              <span className="mx-1 text-[.5rem] font-semibold italic text-alert">
+                systolic/diastolic
+              </span>
             </label>
             <input
               placeholder={editting ? item.bloodPressure : 'write...'}
-              className={`${inputStyle} w-24 rounded-full`}
+              className={`${inputStyle} w-40 rounded-full`}
               onChange={(event) =>
                 dispatch(
                   sessionsActions.handleChangeHoursData({
@@ -34,7 +37,8 @@ const SessionHoursSection = ({ sessionHours, editting }) => {
           </div>
           <div className="flex flex-col">
             <label className="text-xs font-bold text-mainText" htmlFor="pRate">
-              Pulse Rate
+              Pulse Rate{' '}
+              <span className="mx-1 text-[.5rem] font-semibold italic text-alert">bpm</span>
             </label>
             <input
               placeholder={editting ? item.pulseRate : 'write...'}

@@ -12,7 +12,7 @@ const AddNewPatient = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [AddingError, setAddingError] = useState('')
-
+  const [schedule, setSchedule] = useState('sunTueThe')
   const { mutate } = useMutation({
     mutationFn: postNewPatient,
     mutationKey: ['patients'],
@@ -21,7 +21,6 @@ const AddNewPatient = () => {
       queryClient.invalidateQueries({ queryKey: ['patients'] })
     },
     onError: (error) => {
-      console.log(error.message)
       setAddingError(error.message)
     }
   })
@@ -32,7 +31,7 @@ const AddNewPatient = () => {
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData.entries())
 
-    mutate(data)
+    mutate({ ...data, schedule })
   }
   return (
     <section className="relative">
@@ -43,7 +42,12 @@ const AddNewPatient = () => {
         <RedoIcon style={{ height: 30, width: 30, fill: 'white' }} />
       </button>
       <h1 className="text-center px-24  text-mainText text-xl font-bold">حالة جديدة</h1>
-      <PatientFrom handleSubmit={handleSubmitForm} error={AddingError} />
+      <PatientFrom
+        handleSubmit={handleSubmitForm}
+        error={AddingError}
+        schedule={schedule}
+        setSchedule={setSchedule}
+      />
     </section>
   )
 }

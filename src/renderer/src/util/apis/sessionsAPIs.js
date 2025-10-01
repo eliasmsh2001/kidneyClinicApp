@@ -70,3 +70,20 @@ export const editSession = async ({ data, sessionHours, sessionId }) => {
   const newData = response.json()
   return newData
 }
+
+
+export const editbalance = async ({sessionId, field, value}) => {
+  const response = await fetch(`${url}/sessions/editBalance`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ value, field, sessionId })
+  })
+
+  if (!response.ok) {
+    throw Error('Something went wrong!')
+  }
+  const newData = response.json()
+  return newData
+}

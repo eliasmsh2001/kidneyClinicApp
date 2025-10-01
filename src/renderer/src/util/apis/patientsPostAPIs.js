@@ -19,13 +19,13 @@ export const postNewPatient = async (data) => {
   const newData = await response.json()
   return newData
 }
-export const editPatient = async ({ data, id }) => {
+export const editPatient = async ({ data, id, schedule }) => {
   const response = await fetch(`${url}/patients/post/editPatient`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ data, id })
+    body: JSON.stringify({ data, id, schedule })
   })
 
   if (!response.ok) {

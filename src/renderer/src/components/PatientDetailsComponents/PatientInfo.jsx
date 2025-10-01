@@ -52,7 +52,13 @@ const PatientInfo = ({ data }) => {
     >
       {isExpanded ? (
         <img
-          src={data?.gender === 'ذكر' ? maleImg : femaleImg}
+          src={
+            data?.gender === 'ذكر' ||
+            data?.gender.toLowerCase() === 'male' ||
+            data?.residentialId[0] === 1
+              ? maleImg
+              : femaleImg
+          }
           alt=""
           className="rounded-xl h-44"
         />

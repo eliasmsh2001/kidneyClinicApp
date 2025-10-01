@@ -47,7 +47,8 @@ patientPostAPIs.post('/newPatient', async (req, res) => {
         firstEverTreatment: data.firstEverTreatment,
         firstTreatmentHere: data.firstTreatmentHere,
         note: data.note ? data.note.trim() : null,
-        filterNo: data.filterNum ? data.filterNum.trim() : 'Unknown'
+        filterNo: data.filterNum ? data.filterNum.trim() : 'Unknown',
+        schedule: data.schedule
       }
     })
     res.json(newPatient)
@@ -56,7 +57,8 @@ patientPostAPIs.post('/newPatient', async (req, res) => {
   }
 })
 patientPostAPIs.put('/editPatient', async (req, res) => {
-  const { data, id } = req.body
+  const { data, id, schedule } = req.body
+  console.log(schedule)
 
   try {
     const patient = await prisma.patient.findUnique({ where: { id: Number(id) } })
@@ -121,7 +123,9 @@ patientPostAPIs.put('/editPatient', async (req, res) => {
         filterNo:
           data.filterNum && data.filterNum.length > 0 && data.filterNum !== ''
             ? data.filterNum.trim()
-            : patient.filterNo
+            : patient.filterNo,
+
+        schedule: schedule && schedule.length > 0 && schedule !== '' ? schedule : patient.schedule
       }
     })
     res.json(newPatient)
