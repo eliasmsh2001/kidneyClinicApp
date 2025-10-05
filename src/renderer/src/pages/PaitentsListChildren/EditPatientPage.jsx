@@ -13,7 +13,7 @@ const EditPatientPage = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [schedule, setSchedule] = useState('sunTueThe')
+  const [schedule, setSchedule] = useState('sunTueThu')
 
   const { data } = useQuery({
     queryKey: ['patients', 'patientDetails', id],

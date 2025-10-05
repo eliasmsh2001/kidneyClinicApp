@@ -58,7 +58,6 @@ patientPostAPIs.post('/newPatient', async (req, res) => {
 })
 patientPostAPIs.put('/editPatient', async (req, res) => {
   const { data, id, schedule } = req.body
-  console.log(schedule)
 
   try {
     const patient = await prisma.patient.findUnique({ where: { id: Number(id) } })
@@ -128,6 +127,9 @@ patientPostAPIs.put('/editPatient', async (req, res) => {
         schedule: schedule && schedule.length > 0 && schedule !== '' ? schedule : patient.schedule
       }
     })
+
+    console.log(newPatient)
+
     res.json(newPatient)
   } catch (e) {
     res.status(400).json({ error: e.error })

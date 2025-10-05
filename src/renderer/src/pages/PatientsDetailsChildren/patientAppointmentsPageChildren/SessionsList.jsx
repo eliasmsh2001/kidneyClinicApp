@@ -1,9 +1,8 @@
 import clsx from 'clsx'
-import React from 'react'
 
 const SessionsList = ({ analysis, data, isPending, isError, setSelectedSession, setPageView }) => {
   return (
-    <section className="flex gap-32 h-full my-2 justify-center">
+    <section className="flex gap-32 h-full my-2 justify-center items-start">
       {isPending && <h1>Loading...</h1>}
       {isError && <h1>Something went wrong</h1>}
 
@@ -28,7 +27,7 @@ const SessionsList = ({ analysis, data, isPending, isError, setSelectedSession, 
                   setPageView('details')
                 }}
                 className={clsx(
-                  'border-b-2 border-mainText font-bold text-mainText text-center hover:bg-stone-200 opacity-80 duration-200 cursor-pointer',
+                  'border-b-2 h-12 border-mainText font-bold text-mainText text-center hover:bg-stone-200 opacity-80 duration-200 cursor-pointer',
                   {
                     'bg-mainBlue/25': index % 2 === 0
                   }

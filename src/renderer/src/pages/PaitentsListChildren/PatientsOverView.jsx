@@ -25,19 +25,18 @@ const PatientsOverView = () => {
   const reactToPrintFn = useReactToPrint({ contentRef })
 
   return (
-    <section className="flex flex-col gap-4 items-end px-8 overflow-scroll h-[40rem]">
-      <div className="flex justify-start gap-4 x-4 flex-row-reverse items-center">
+    <section className="flex flex-col gap-4 items-start px-8 overflow-scroll h-[40rem]">
+      <div className="flex justify-start gap-4 x-4 items-center">
         <input
           onChange={(event) => onSearchChange(event.target.value)}
           type="text"
           name=""
           id=""
-          placeholder="بحث باسم أو رقم وطني...."
-          dir="rtl"
+          placeholder="Search by name or social security number...."
           className="w-96 py-2 px-4 border-2 border-stone-400 outline-0 focus:border-mainBlue text-mainText font-semibold rounded-full z-10"
         />
 
-        <div className="flex gap-4 flex-row-reverse">
+        <div className="flex gap-4 ">
           <button
             onClick={() => navigate('newPatient')}
             className="bg-unique rounded-full p-2 flex justify-center items-center hover:opacity-75 duration-200"

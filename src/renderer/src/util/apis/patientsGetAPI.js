@@ -49,7 +49,6 @@ export const getPatientAnalysis = async ({ id }) => {
   return data
 }
 
-
 export const getPatientFiles = async ({ id }) => {
   if (!id) {
     throw Error('This Path Does Not Exit!!')
@@ -62,5 +61,15 @@ export const getPatientFiles = async ({ id }) => {
   }
 
   const data = await res.json()
+  return data
+}
+
+export const getTodaysAttendance = async () => {
+  const response = await fetch(`${url}/patients/get/attendants`)
+
+  if (!response.ok) {
+  }
+
+  const data = await response.json()
   return data
 }

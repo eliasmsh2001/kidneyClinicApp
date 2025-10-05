@@ -159,4 +159,49 @@ patientGetAPIs.get('/patientAnalysis', async (req, res) => {
   }
 })
 
+patientGetAPIs.get('/attendants', async (req, res) => {
+  const days = [
+    'sun', // Sunday
+    'mon', // Monday
+    'thu', // Tuesday
+    'wed', // Wednesday
+    'thu', // Thursday
+    'fri', // Friday
+    'sat' // Saturday
+  ]
+
+  const today = new Date()
+  const dayIndex = today.getDay() // Returns 0-6 (0=Sunday, 1=Monday, etc.)
+  const todayName = days[dayIndex]
+
+  try {
+    const patients = await prisma.patient.findMany({ include: { sessions: true } })
+    const filteredPatients = patients.filter((item) =>
+      item.schedule.toLowerCase().includes(todayName)
+    )
+
+    const tweakedPatients = filteredPatients.map((obj) => {
+      return {
+        ...obj,
+        latestSesstion:
+          obj.sessions.length > 0
+            ? obj.sessions.reduce((latest, current) => {
+                return current.date > latest.date ? current : latest
+              }).date
+            : 'No Sesstions',
+        attended: obj.sessions.find(
+          (item) => new Date(item.date).toDateString() === new Date().toDateString()
+        )
+          ? true
+          : false
+      }
+    })
+
+    res.json(tweakedPatients)
+  } catch (e) {
+    console.log(e)
+    res.status(400).json({ error: e.error })
+  }
+})
+
 module.exports = patientGetAPIs

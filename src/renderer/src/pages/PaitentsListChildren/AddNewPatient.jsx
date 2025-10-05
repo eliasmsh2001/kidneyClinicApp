@@ -12,7 +12,7 @@ const AddNewPatient = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [AddingError, setAddingError] = useState('')
-  const [schedule, setSchedule] = useState('sunTueThe')
+  const [schedule, setSchedule] = useState('sunTueThu')
   const { mutate } = useMutation({
     mutationFn: postNewPatient,
     mutationKey: ['patients'],

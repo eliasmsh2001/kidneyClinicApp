@@ -61,8 +61,8 @@ sessionsRouter.post('/newSession', async (req, res) => {
         bloodPressure: bloodPressure
           ? `${parseBloodPressure(bloodPressure).systolic}/${parseBloodPressure(bloodPressure).diastolic}`
           : '',
-        systolicBP: bloodPressure ? parseBloodPressure(bloodPressure).systolic : '',
-        diastolicBP: bloodPressure ? parseBloodPressure(bloodPressure).diastolic : ''
+        systolicBP: bloodPressure ? parseBloodPressure(bloodPressure).systolic : null,
+        diastolicBP: bloodPressure ? parseBloodPressure(bloodPressure).diastolic : null
       }))
     })
 
@@ -115,7 +115,6 @@ sessionsRouter.delete('/deleteSession', async (req, res) => {
 })
 sessionsRouter.put('/editSession', async (req, res) => {
   const { data, sessionHours, sessionId } = req.body
-  console.log(sessionHours)
   try {
     const existingSession = await prisma.session.findUnique({ where: { id: Number(sessionId) } })
 
@@ -222,8 +221,6 @@ sessionsRouter.put('/editBalance', async (req, res) => {
       where: { id: sessionId },
       data: { balance: Number(intake) - Number(output) }
     })
-
-    console.log(edittedSesh.balance)
 
     res.json(edittedSesh)
   } catch (e) {

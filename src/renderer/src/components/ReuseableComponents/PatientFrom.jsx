@@ -49,7 +49,7 @@ const PatientFrom = ({ handleSubmit, error, schedule, setSchedule }) => {
             id=""
             className=" border-2 border-stone-300 outline-0 focus:border-mainBlue p-3 rounded-xl text-mainText font-bold"
           >
-            <option value="sunTueThe">الأحد/الثلاثاء/الخميس</option>
+            <option value="sunTueThu">الأحد/الثلاثاء/الخميس</option>
             <option value="satMonWed">السبت/الإثنين/الإربعاء</option>
           </select>
         </div>

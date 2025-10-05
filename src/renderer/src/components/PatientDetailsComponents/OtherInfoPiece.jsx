@@ -21,6 +21,11 @@ const OtherInfoPiece = ({ data }) => {
       key: 15,
       label: 'رقم الفلتر',
       value: data?.filterNo ? data?.filterNo : 'Unknown'
+    },
+    {
+      key: 16,
+      label: 'الجدول',
+      value: data?.schedule === 'sunTueThu' ? 'الأحد/الثلاثاء/الخميس' : 'السبت/الإثنين/الإربعاء'
     }
   ]
 

@@ -61,8 +61,8 @@ function App() {
                     element={user ? <PatientFile /> : <Navigate to="/login" />}
                   />
                 </Route>
+                <Route path="*" element={<NotFoundPage />} />
               </Route>
-              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </HashRouter>{' '}
         </QueryClientProvider>

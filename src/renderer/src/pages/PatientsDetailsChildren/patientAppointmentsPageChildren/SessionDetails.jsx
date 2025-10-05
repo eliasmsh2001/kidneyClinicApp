@@ -7,6 +7,7 @@ import { queryClient } from '../../../util/apis/httpUrl'
 import { useDispatch } from 'react-redux'
 import { sessionsActions } from '../../../util/slicers/sessionsSlicer'
 import { dialogActions } from '../../../util/slicers/dialogSlicer'
+import CheckIcon from '@mui/icons-material/Check'
 
 const SessionDetails = ({ data, setPageView }) => {
   const [isDeleting, setIsDeleting] = useState(false)
@@ -29,6 +30,7 @@ const SessionDetails = ({ data, setPageView }) => {
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sessionDetails'] })
+      queryClient.invalidateQueries({ queryKey: ['sessions'] })
     },
 
     onError(error) {
@@ -200,9 +202,9 @@ const SessionDetails = ({ data, setPageView }) => {
               <td>{item?.ivf}</td>
               <td>{item?.drugs}</td>
               <td>{item?.vomitting}</td>
-              <td>{item?.cramps === 'checked' ? 'tic' : ''}</td>
-              <td>{item?.hematoma === 'checked' ? 'tic' : ''}</td>
-              <td>{item?.chestPain === 'checked' ? 'tic' : ''}</td>
+              <td>{item?.cramps === 'checked' ? <CheckIcon /> : ''}</td>
+              <td>{item?.hematoma === 'checked' ? <CheckIcon /> : ''}</td>
+              <td>{item?.chestPain === 'checked' ? <CheckIcon /> : ''}</td>
             </tr>
           ))}
         </tbody>

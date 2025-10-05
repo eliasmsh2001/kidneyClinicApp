@@ -7,17 +7,22 @@ const PatientsListMainTable = ({ data }) => {
   const navigate = useNavigate()
 
   return (
-    <table dir="rtl" className=" rounded-xl border-2 border-mainBlue ">
+    <table className=" rounded-xl border-2 border-mainBlue ">
       <thead>
         <tr className="bg-mainBlue text-white text-sm font-bold">
-          <th className="w-32 py-1">رقم الحالة</th>
-          <th className="w-72 py-1">اسم الحالة</th>
-          <th className="w-52 py-1">الرقم الوطني</th>
-          <th className="w-14 py-1">العمر</th>
-          <th className="w-52 py-1">أسباب الفشل</th>
-          <th className="w-32 py-1">أول غسيل</th>
-          <th className="w-36 py-1">أول غسيل في الداخل</th>
-          <th className="w-36 py-1">عدد المواعيد المسجلة</th>
+          <th className="w-32 py-1">PATIENT NO.</th>
+          <th className="w-72 py-1">PATIENT NAME</th>
+          <th className="w-52 py-1">SOCIAL SECURITY</th>
+          <th className="w-14 py-1">AGE</th>
+          <th className="w-52 py-1">FAILURE CAUSE</th>
+          <th className="w-32 py-1">
+            FIRST DIALYSIS <br /> <span className="text-xs">(elsewhere)</span>
+          </th>
+          <th className="w-36 py-1">
+            FIRST DIALYSIS <br /> <span className="text-xs">(in clinic)</span>
+          </th>
+          <th className="w-36 py-1">SCHEDULE</th>
+          <th className="w-36 py-1">TOTAL SESSIONS</th>
         </tr>
       </thead>
       <tbody>
@@ -40,6 +45,9 @@ const PatientsListMainTable = ({ data }) => {
                 <td className={`${cellStyle}`}>{item?.sicknessCause}</td>
                 <td className={`${cellStyle}`}>{item?.firstEverTreatment}</td>
                 <td className={`${cellStyle}`}>{item?.firstTreatmentHere}</td>
+                <td className={`${cellStyle}`}>
+                  {item?.schedule === 'sunTueThu' ? 'San/Tue/Thu' : 'Sat/Mon/Wed'}
+                </td>
                 <td className={`${cellStyle}`}>{item?.sessions?.length}</td>
               </tr>
               {(data.indexOf(item) + 1) % 15 === 0 && <div className="break-before-page" />}

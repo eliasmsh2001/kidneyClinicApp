@@ -75,7 +75,7 @@ const MainSidebar = () => {
             <GroupsIcon style={{ height: 35, width: 35, fill: 'white' }} className="absolute" />
           </button>
         </li>
-        <li className={rowStyle}>
+        {/* <li className={rowStyle}>
           <button className={btnClass} onClick={() => navigate('signup')}>
             <span
               className={clsx('absolute right-14 ', {
@@ -87,7 +87,7 @@ const MainSidebar = () => {
             </span>
             <SettingsIcon style={{ height: 35, width: 35, fill: 'white' }} className="absolute" />
           </button>
-        </li>
+        </li> */}
         {/* <li className={rowStyle}>
           <button className={btnClass} onClick={() => navigate('patientDetails')}>
             detes
@@ -106,7 +106,7 @@ const MainSidebar = () => {
                 'opacity-100  ': isExtended
               })}
             >
-              تسجيل خروج
+              Log out
             </span>
             <LogoutIcon
               style={{ height: 35, width: 35, fill: 'white' }}
@@ -125,7 +125,7 @@ const MainSidebar = () => {
                 'opacity-100  ': isExtended
               })}
             >
-              إغلاق البرنامج
+              Quit
             </span>
             <CancelIcon style={{ height: 35, width: 35, fill: 'white' }} className="absolute " />
           </button>
