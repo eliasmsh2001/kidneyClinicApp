@@ -68,7 +68,8 @@ sessionsRouter.post('/newSession', async (req, res) => {
 
     res.json(newSesstion, newSesstionHours)
   } catch (e) {
-    console.log(e)
+    // console.log(e)
+    res.status(400).json({ error: e.error })
   }
 })
 
@@ -84,7 +85,8 @@ sessionsRouter.get('/getSessions', async (req, res) => {
 
     res.json(sortedSessions)
   } catch (e) {
-    console.log(e)
+    // console.log(e)
+    res.status(400).json({ error: e.error })
   }
 })
 
@@ -98,7 +100,8 @@ sessionsRouter.get('/getSessionDetails', async (req, res) => {
 
     res.json(session)
   } catch (e) {
-    console.log(e)
+    // console.log(e)
+    res.status(400).json({ error: e.error })
   }
 })
 
@@ -110,7 +113,8 @@ sessionsRouter.delete('/deleteSession', async (req, res) => {
 
     res.json(deletedSession, deletedSessionHours)
   } catch (e) {
-    console.log(e)
+    // console.log(e)
+    res.status(400).json({ error: e.error })
   }
 })
 sessionsRouter.put('/editSession', async (req, res) => {
@@ -195,7 +199,8 @@ sessionsRouter.put('/editSession', async (req, res) => {
 
     res.json(updatedSesstion, updatedHours)
   } catch (e) {
-    console.log(e)
+    // console.log(e)
+    res.status(400).json({ error: e.error })
   }
 })
 
@@ -224,7 +229,8 @@ sessionsRouter.put('/editBalance', async (req, res) => {
 
     res.json(edittedSesh)
   } catch (e) {
-    console.log(e)
+    // console.log(e)
+    res.status(400).json({ error: e.error })
   }
 })
 

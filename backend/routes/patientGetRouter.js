@@ -11,7 +11,10 @@ patientGetAPIs.get('/patients', async (req, res) => {
     let patients
 
     patients = (await prisma.patient.findMany({ include: { sessions: true } })).filter((item) =>
-      term ? item.patientName?.includes(term) || item.residentialId?.includes(term) : item
+      term
+        ? item.patientName?.toLowerCase().includes(term?.toLowerCase()) ||
+          item.residentialId?.includes(term)
+        : item
     )
 
     res.json(patients)
@@ -80,6 +83,7 @@ patientGetAPIs.get('/patientAnalysis', async (req, res) => {
 
     let systolicSum = 0
     let diastolicSum = 0
+    let bpLength = 0
 
     for (let i = 0; i < hours.length; i++) {
       hours[i].bloodPressure
@@ -87,15 +91,19 @@ patientGetAPIs.get('/patientAnalysis', async (req, res) => {
             hours[i].bloodPressure?.slice(0, hours[i].bloodPressure.indexOf('/')).trim()
           ))
         : 0
-      diastolicSum += Number(
-        hours[i].bloodPressure
-          ?.slice(hours[i].bloodPressure.indexOf('/') + 1, hours[i].bloodPressure.length)
-          .trim()
-      )
+      hours[i].bloodPressure
+        ? (diastolicSum += Number(
+            hours[i].bloodPressure
+              ?.slice(hours[i].bloodPressure.indexOf('/') + 1, hours[i].bloodPressure.length)
+              .trim()
+          ))
+        : 0
+
+      hours[i].bloodPressure && bpLength++
     }
 
-    let avgSystolic = systolicSum / hours.length
-    let avgDiastolic = diastolicSum / hours.length
+    let avgSystolic = systolicSum / bpLength
+    let avgDiastolic = diastolicSum / bpLength
     const averageBp = `${Math.round(avgSystolic)}/${Math.round(avgDiastolic)}`
 
     // ==================================================================================
@@ -107,7 +115,7 @@ patientGetAPIs.get('/patientAnalysis', async (req, res) => {
 
     // Find the reading with the lowest systolic value
     const lowestSystolic = hours.reduce((min, item) =>
-      item.systolicBP > 0 && item.systolicBP < min.systolicBP ? item : min
+      item.systolicBP < min.systolicBP ? item : min
     )
 
     const highstSystolic = hours.reduce((max, item) =>

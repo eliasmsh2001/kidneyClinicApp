@@ -25,7 +25,7 @@ const PatientsOverView = () => {
   const reactToPrintFn = useReactToPrint({ contentRef })
 
   return (
-    <section className="flex flex-col gap-4 items-start px-8 overflow-scroll h-[40rem]">
+    <section className="flex flex-col gap-4 items-start px-8 overflow-y-scroll h-auto">
       <div className="flex justify-start gap-4 x-4 items-center">
         <input
           onChange={(event) => onSearchChange(event.target.value)}
@@ -58,7 +58,7 @@ const PatientsOverView = () => {
         )}
       </div>
 
-      <div className="h-[35rem] overflow-y-scroll px-4">
+      <div className="h-full px-4">
         {data && !isError && data.length > 0 ? (
           <PatientsListMainTable data={data} />
         ) : (

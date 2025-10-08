@@ -44,7 +44,13 @@ const PatientAppointmentsPage = () => {
 
   return (
     <section className="p-4 ">
-      {pageView === 'list' && (
+      {allSessions?.length < 1 && (
+        <h1 className="text-4xl text-mainBlue font-bold text-center mt-14">
+          THERE IS NO SESSIONS REGISTERED FOR THIS PATIENT YET
+        </h1>
+      )}
+
+      {allSessions && allSessions?.length > 0 && pageView === 'list' && (
         <SessionsList
           analysis={analysis ? analysis : null}
           data={allSessions}

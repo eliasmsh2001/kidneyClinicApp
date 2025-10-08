@@ -63,7 +63,7 @@ const MainSidebar = () => {
           </button>
         </li>
         <li className={rowStyle}>
-          <button className={btnClass} onClick={() => navigate('patientsList')}>
+          <button className={btnClass} onClick={() => navigate('/patientsList')}>
             <span
               className={clsx('absolute right-14 ', {
                 'opacity-0 ': !isExtended,

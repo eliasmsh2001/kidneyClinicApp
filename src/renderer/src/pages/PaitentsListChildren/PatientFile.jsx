@@ -53,7 +53,7 @@ const PatientFile = () => {
   })
 
   return (
-    <div className="relative flex justify-center">
+    <div className="relative flex justify-center items-start h-screen">
       <button
         className="bg-alert absolute right-2 -top-10 text-white p-2 rounded-full "
         onClick={() => navigate(`/patientsList/patientDetails/${id}`)}
@@ -77,7 +77,7 @@ const PatientFile = () => {
               <h1 className="text-stone-500 text-center text-sm font-semibold">قم بإدخال ملف</h1>
             </div>
           )}
-          <input className="w-[6.2rem]" type="file" onChange={handleFileChange} />
+          <input className="w-[6.9rem]" type="file" onChange={handleFileChange} />
           {selectedFile && <h1>{selectedFile.name}</h1>}
           <button
             className="bg-mainBlue rounded-full p-2 text-white font-bold hover:opacity-55 duration-200"
@@ -92,7 +92,7 @@ const PatientFile = () => {
       )}
       {data &&
         data.map((file) => (
-          <embed key={file.id} src={`${url}/${file.path}`} width="100%" height="680px" />
+          <embed key={file.id} src={`${url}/${file.path}`} width="100%" height="100%" />
         ))}
     </div>
   )

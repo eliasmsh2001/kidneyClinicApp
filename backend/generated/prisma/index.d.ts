@@ -2182,10 +2182,12 @@ export namespace Prisma {
 
   export type PatientAvgAggregateOutputType = {
     id: number | null
+    totalAbsence: number | null
   }
 
   export type PatientSumAggregateOutputType = {
     id: number | null
+    totalAbsence: number | null
   }
 
   export type PatientMinAggregateOutputType = {
@@ -2206,6 +2208,10 @@ export namespace Prisma {
     firstTreatmentHere: string | null
     note: string | null
     filterNo: string | null
+    absentToday: boolean | null
+    totalAbsence: number | null
+    latestAbsence: string | null
+    latestAbsenceBU: string | null
     schedule: string | null
   }
 
@@ -2227,6 +2233,10 @@ export namespace Prisma {
     firstTreatmentHere: string | null
     note: string | null
     filterNo: string | null
+    absentToday: boolean | null
+    totalAbsence: number | null
+    latestAbsence: string | null
+    latestAbsenceBU: string | null
     schedule: string | null
   }
 
@@ -2248,6 +2258,10 @@ export namespace Prisma {
     firstTreatmentHere: number
     note: number
     filterNo: number
+    absentToday: number
+    totalAbsence: number
+    latestAbsence: number
+    latestAbsenceBU: number
     schedule: number
     _all: number
   }
@@ -2255,10 +2269,12 @@ export namespace Prisma {
 
   export type PatientAvgAggregateInputType = {
     id?: true
+    totalAbsence?: true
   }
 
   export type PatientSumAggregateInputType = {
     id?: true
+    totalAbsence?: true
   }
 
   export type PatientMinAggregateInputType = {
@@ -2279,6 +2295,10 @@ export namespace Prisma {
     firstTreatmentHere?: true
     note?: true
     filterNo?: true
+    absentToday?: true
+    totalAbsence?: true
+    latestAbsence?: true
+    latestAbsenceBU?: true
     schedule?: true
   }
 
@@ -2300,6 +2320,10 @@ export namespace Prisma {
     firstTreatmentHere?: true
     note?: true
     filterNo?: true
+    absentToday?: true
+    totalAbsence?: true
+    latestAbsence?: true
+    latestAbsenceBU?: true
     schedule?: true
   }
 
@@ -2321,6 +2345,10 @@ export namespace Prisma {
     firstTreatmentHere?: true
     note?: true
     filterNo?: true
+    absentToday?: true
+    totalAbsence?: true
+    latestAbsence?: true
+    latestAbsenceBU?: true
     schedule?: true
     _all?: true
   }
@@ -2429,6 +2457,10 @@ export namespace Prisma {
     firstTreatmentHere: string | null
     note: string | null
     filterNo: string | null
+    absentToday: boolean | null
+    totalAbsence: number | null
+    latestAbsence: string | null
+    latestAbsenceBU: string | null
     schedule: string | null
     _count: PatientCountAggregateOutputType | null
     _avg: PatientAvgAggregateOutputType | null
@@ -2469,6 +2501,10 @@ export namespace Prisma {
     firstTreatmentHere?: boolean
     note?: boolean
     filterNo?: boolean
+    absentToday?: boolean
+    totalAbsence?: boolean
+    latestAbsence?: boolean
+    latestAbsenceBU?: boolean
     schedule?: boolean
     files?: boolean | patient$filesArgs<ExtArgs>
     sessions?: boolean | patient$sessionsArgs<ExtArgs>
@@ -2495,10 +2531,14 @@ export namespace Prisma {
     firstTreatmentHere?: boolean
     note?: boolean
     filterNo?: boolean
+    absentToday?: boolean
+    totalAbsence?: boolean
+    latestAbsence?: boolean
+    latestAbsenceBU?: boolean
     schedule?: boolean
   }
 
-  export type patientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patientName" | "residentialId" | "age" | "birthDate" | "phoneNumber" | "address" | "bloodType" | "hight" | "weight" | "social" | "gender" | "sicknessCause" | "firstEverTreatment" | "firstTreatmentHere" | "note" | "filterNo" | "schedule", ExtArgs["result"]["patient"]>
+  export type patientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patientName" | "residentialId" | "age" | "birthDate" | "phoneNumber" | "address" | "bloodType" | "hight" | "weight" | "social" | "gender" | "sicknessCause" | "firstEverTreatment" | "firstTreatmentHere" | "note" | "filterNo" | "absentToday" | "totalAbsence" | "latestAbsence" | "latestAbsenceBU" | "schedule", ExtArgs["result"]["patient"]>
   export type patientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     files?: boolean | patient$filesArgs<ExtArgs>
     sessions?: boolean | patient$sessionsArgs<ExtArgs>
@@ -2529,6 +2569,10 @@ export namespace Prisma {
       firstTreatmentHere: string | null
       note: string | null
       filterNo: string | null
+      absentToday: boolean | null
+      totalAbsence: number | null
+      latestAbsence: string | null
+      latestAbsenceBU: string | null
       schedule: string | null
     }, ExtArgs["result"]["patient"]>
     composites: {}
@@ -2918,6 +2962,10 @@ export namespace Prisma {
     readonly firstTreatmentHere: FieldRef<"patient", 'String'>
     readonly note: FieldRef<"patient", 'String'>
     readonly filterNo: FieldRef<"patient", 'String'>
+    readonly absentToday: FieldRef<"patient", 'Boolean'>
+    readonly totalAbsence: FieldRef<"patient", 'Int'>
+    readonly latestAbsence: FieldRef<"patient", 'String'>
+    readonly latestAbsenceBU: FieldRef<"patient", 'String'>
     readonly schedule: FieldRef<"patient", 'String'>
   }
     
@@ -6647,6 +6695,10 @@ export namespace Prisma {
     firstTreatmentHere: 'firstTreatmentHere',
     note: 'note',
     filterNo: 'filterNo',
+    absentToday: 'absentToday',
+    totalAbsence: 'totalAbsence',
+    latestAbsence: 'latestAbsence',
+    latestAbsenceBU: 'latestAbsenceBU',
     schedule: 'schedule'
   };
 
@@ -6758,6 +6810,8 @@ export namespace Prisma {
     firstTreatmentHere: 'firstTreatmentHere',
     note: 'note',
     filterNo: 'filterNo',
+    latestAbsence: 'latestAbsence',
+    latestAbsenceBU: 'latestAbsenceBU',
     schedule: 'schedule'
   };
 
@@ -6832,6 +6886,13 @@ export namespace Prisma {
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -6923,6 +6984,10 @@ export namespace Prisma {
     firstTreatmentHere?: StringNullableFilter<"patient"> | string | null
     note?: StringNullableFilter<"patient"> | string | null
     filterNo?: StringNullableFilter<"patient"> | string | null
+    absentToday?: BoolNullableFilter<"patient"> | boolean | null
+    totalAbsence?: IntNullableFilter<"patient"> | number | null
+    latestAbsence?: StringNullableFilter<"patient"> | string | null
+    latestAbsenceBU?: StringNullableFilter<"patient"> | string | null
     schedule?: StringNullableFilter<"patient"> | string | null
     files?: FileListRelationFilter
     sessions?: SessionListRelationFilter
@@ -6946,6 +7011,10 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrderInput | SortOrder
     note?: SortOrderInput | SortOrder
     filterNo?: SortOrderInput | SortOrder
+    absentToday?: SortOrderInput | SortOrder
+    totalAbsence?: SortOrderInput | SortOrder
+    latestAbsence?: SortOrderInput | SortOrder
+    latestAbsenceBU?: SortOrderInput | SortOrder
     schedule?: SortOrderInput | SortOrder
     files?: fileOrderByRelationAggregateInput
     sessions?: sessionOrderByRelationAggregateInput
@@ -6973,6 +7042,10 @@ export namespace Prisma {
     firstTreatmentHere?: StringNullableFilter<"patient"> | string | null
     note?: StringNullableFilter<"patient"> | string | null
     filterNo?: StringNullableFilter<"patient"> | string | null
+    absentToday?: BoolNullableFilter<"patient"> | boolean | null
+    totalAbsence?: IntNullableFilter<"patient"> | number | null
+    latestAbsence?: StringNullableFilter<"patient"> | string | null
+    latestAbsenceBU?: StringNullableFilter<"patient"> | string | null
     schedule?: StringNullableFilter<"patient"> | string | null
     files?: FileListRelationFilter
     sessions?: SessionListRelationFilter
@@ -6996,6 +7069,10 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrderInput | SortOrder
     note?: SortOrderInput | SortOrder
     filterNo?: SortOrderInput | SortOrder
+    absentToday?: SortOrderInput | SortOrder
+    totalAbsence?: SortOrderInput | SortOrder
+    latestAbsence?: SortOrderInput | SortOrder
+    latestAbsenceBU?: SortOrderInput | SortOrder
     schedule?: SortOrderInput | SortOrder
     _count?: patientCountOrderByAggregateInput
     _avg?: patientAvgOrderByAggregateInput
@@ -7025,6 +7102,10 @@ export namespace Prisma {
     firstTreatmentHere?: StringNullableWithAggregatesFilter<"patient"> | string | null
     note?: StringNullableWithAggregatesFilter<"patient"> | string | null
     filterNo?: StringNullableWithAggregatesFilter<"patient"> | string | null
+    absentToday?: BoolNullableWithAggregatesFilter<"patient"> | boolean | null
+    totalAbsence?: IntNullableWithAggregatesFilter<"patient"> | number | null
+    latestAbsence?: StringNullableWithAggregatesFilter<"patient"> | string | null
+    latestAbsenceBU?: StringNullableWithAggregatesFilter<"patient"> | string | null
     schedule?: StringNullableWithAggregatesFilter<"patient"> | string | null
   }
 
@@ -7418,6 +7499,10 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    absentToday?: boolean | null
+    totalAbsence?: number | null
+    latestAbsence?: string | null
+    latestAbsenceBU?: string | null
     schedule?: string | null
     files?: fileCreateNestedManyWithoutPatientInput
     sessions?: sessionCreateNestedManyWithoutPatientInput
@@ -7441,6 +7526,10 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    absentToday?: boolean | null
+    totalAbsence?: number | null
+    latestAbsence?: string | null
+    latestAbsenceBU?: string | null
     schedule?: string | null
     files?: fileUncheckedCreateNestedManyWithoutPatientInput
     sessions?: sessionUncheckedCreateNestedManyWithoutPatientInput
@@ -7463,6 +7552,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUpdateManyWithoutPatientNestedInput
     sessions?: sessionUpdateManyWithoutPatientNestedInput
@@ -7486,6 +7579,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUncheckedUpdateManyWithoutPatientNestedInput
     sessions?: sessionUncheckedUpdateManyWithoutPatientNestedInput
@@ -7509,6 +7606,10 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    absentToday?: boolean | null
+    totalAbsence?: number | null
+    latestAbsence?: string | null
+    latestAbsenceBU?: string | null
     schedule?: string | null
   }
 
@@ -7529,6 +7630,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -7550,6 +7655,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -8056,6 +8165,22 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type FileListRelationFilter = {
     every?: fileWhereInput
     some?: fileWhereInput
@@ -8100,11 +8225,16 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrder
     note?: SortOrder
     filterNo?: SortOrder
+    absentToday?: SortOrder
+    totalAbsence?: SortOrder
+    latestAbsence?: SortOrder
+    latestAbsenceBU?: SortOrder
     schedule?: SortOrder
   }
 
   export type patientAvgOrderByAggregateInput = {
     id?: SortOrder
+    totalAbsence?: SortOrder
   }
 
   export type patientMaxOrderByAggregateInput = {
@@ -8125,6 +8255,10 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrder
     note?: SortOrder
     filterNo?: SortOrder
+    absentToday?: SortOrder
+    totalAbsence?: SortOrder
+    latestAbsence?: SortOrder
+    latestAbsenceBU?: SortOrder
     schedule?: SortOrder
   }
 
@@ -8146,11 +8280,40 @@ export namespace Prisma {
     firstTreatmentHere?: SortOrder
     note?: SortOrder
     filterNo?: SortOrder
+    absentToday?: SortOrder
+    totalAbsence?: SortOrder
+    latestAbsence?: SortOrder
+    latestAbsenceBU?: SortOrder
     schedule?: SortOrder
   }
 
   export type patientSumOrderByAggregateInput = {
     id?: SortOrder
+    totalAbsence?: SortOrder
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -8232,17 +8395,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type SessionHoursListRelationFilter = {
@@ -8346,22 +8498,6 @@ export namespace Prisma {
     id?: SortOrder
     balance?: SortOrder
     patientId?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type SessionScalarRelationFilter = {
@@ -8487,6 +8623,18 @@ export namespace Prisma {
     connect?: sessionWhereUniqueInput | sessionWhereUniqueInput[]
   }
 
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type fileUpdateManyWithoutPatientNestedInput = {
     create?: XOR<fileCreateWithoutPatientInput, fileUncheckedCreateWithoutPatientInput> | fileCreateWithoutPatientInput[] | fileUncheckedCreateWithoutPatientInput[]
     connectOrCreate?: fileCreateOrConnectWithoutPatientInput | fileCreateOrConnectWithoutPatientInput[]
@@ -8579,14 +8727,6 @@ export namespace Prisma {
     connectOrCreate?: sessionHoursCreateOrConnectWithoutSessionInput | sessionHoursCreateOrConnectWithoutSessionInput[]
     createMany?: sessionHoursCreateManySessionInputEnvelope
     connect?: sessionHoursWhereUniqueInput | sessionHoursWhereUniqueInput[]
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type patientUpdateOneRequiredWithoutSessionsNestedInput = {
@@ -8754,29 +8894,17 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8804,6 +8932,31 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type fileCreateWithoutPatientInput = {
@@ -8985,6 +9138,10 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    absentToday?: boolean | null
+    totalAbsence?: number | null
+    latestAbsence?: string | null
+    latestAbsenceBU?: string | null
     schedule?: string | null
     sessions?: sessionCreateNestedManyWithoutPatientInput
   }
@@ -9007,6 +9164,10 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    absentToday?: boolean | null
+    totalAbsence?: number | null
+    latestAbsence?: string | null
+    latestAbsenceBU?: string | null
     schedule?: string | null
     sessions?: sessionUncheckedCreateNestedManyWithoutPatientInput
   }
@@ -9044,6 +9205,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: sessionUpdateManyWithoutPatientNestedInput
   }
@@ -9066,6 +9231,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
     sessions?: sessionUncheckedUpdateManyWithoutPatientNestedInput
   }
@@ -9087,6 +9256,10 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    absentToday?: boolean | null
+    totalAbsence?: number | null
+    latestAbsence?: string | null
+    latestAbsenceBU?: string | null
     schedule?: string | null
     files?: fileCreateNestedManyWithoutPatientInput
   }
@@ -9109,6 +9282,10 @@ export namespace Prisma {
     firstTreatmentHere?: string | null
     note?: string | null
     filterNo?: string | null
+    absentToday?: boolean | null
+    totalAbsence?: number | null
+    latestAbsence?: string | null
+    latestAbsenceBU?: string | null
     schedule?: string | null
     files?: fileUncheckedCreateNestedManyWithoutPatientInput
   }
@@ -9189,6 +9366,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUpdateManyWithoutPatientNestedInput
   }
@@ -9211,6 +9392,10 @@ export namespace Prisma {
     firstTreatmentHere?: NullableStringFieldUpdateOperationsInput | string | null
     note?: NullableStringFieldUpdateOperationsInput | string | null
     filterNo?: NullableStringFieldUpdateOperationsInput | string | null
+    absentToday?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    totalAbsence?: NullableIntFieldUpdateOperationsInput | number | null
+    latestAbsence?: NullableStringFieldUpdateOperationsInput | string | null
+    latestAbsenceBU?: NullableStringFieldUpdateOperationsInput | string | null
     schedule?: NullableStringFieldUpdateOperationsInput | string | null
     files?: fileUncheckedUpdateManyWithoutPatientNestedInput
   }

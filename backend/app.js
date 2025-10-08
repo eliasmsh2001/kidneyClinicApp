@@ -4,7 +4,9 @@ const patientPostAPIsRouter = require('./routes/patientPostRouter.js')
 const patientGetAPIsRouter = require('./routes/patientGetRouter.js')
 const cors = require('cors')
 const sessionsRouter = require('./routes/sessionsRouter.js')
+const { PrismaClient } = require('./generated/prisma/client')
 
+const prisma = new PrismaClient()
 const app = express()
 app.use('/uploads', express.static('uploads'))
 app.use(express.json()) // For JSON bodies

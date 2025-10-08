@@ -57,7 +57,7 @@ const PatientDetailsPage = () => {
   ]
 
   return (
-    <main className="relative overflow-y-scroll h-[40rem]">
+    <main className="relative overflow-y-scroll h-fit">
       <PatientInfo data={data} />
 
       <div className=" flex  flex-row-reverse justify-between bg-secondaryText ">

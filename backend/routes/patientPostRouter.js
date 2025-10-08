@@ -128,8 +128,6 @@ patientPostAPIs.put('/editPatient', async (req, res) => {
       }
     })
 
-    console.log(newPatient)
-
     res.json(newPatient)
   } catch (e) {
     res.status(400).json({ error: e.error })
@@ -162,12 +160,10 @@ patientPostAPIs.post('/uploadFiles', upload.single('file'), async (req, res) => 
   try {
     if (!file) {
       return res.status(400).json({ message: 'No file uploaded' })
-      console.log('no file')
     }
     const patientId = req.body.patientId
     if (!patientId) {
       return res.status(400).json({ message: 'User ID is required' })
-      console.log('no id')
     }
     const filePath = `uploads/${file.filename}`
     const newFile = await prisma.file.create({

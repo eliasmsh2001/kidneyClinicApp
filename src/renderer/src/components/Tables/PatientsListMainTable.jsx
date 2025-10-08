@@ -50,7 +50,7 @@ const PatientsListMainTable = ({ data }) => {
                 </td>
                 <td className={`${cellStyle}`}>{item?.sessions?.length}</td>
               </tr>
-              {(data.indexOf(item) + 1) % 15 === 0 && <div className="break-before-page" />}
+              {(data.indexOf(item) + 1) % 20 === 0 && <div className="break-before-page" />}
             </React.Fragment>
           ))}
       </tbody>

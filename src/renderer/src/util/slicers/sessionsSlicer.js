@@ -66,6 +66,23 @@ const sessionsSlicer = createSlice({
         orderCat = 'th'
       }
 
+      if (state.sessionHours.length < 1) {
+        state.sessionHours.push({
+          key: 0,
+          time: 'Pre. HD',
+          bloodPressure: '',
+          rbs: '',
+          ivf: '',
+          drugs: '',
+          cramps: '',
+          vomitting: '',
+          hematoma: '',
+          chestPain: '',
+          pulseRate: '',
+          temperature: ''
+        })
+      }
+
       state.sessionHours.push({
         key: state.sessionHours.length,
         time: `${state.sessionHours.length}${orderCat} HR`,

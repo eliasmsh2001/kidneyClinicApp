@@ -145,6 +145,10 @@ exports.Prisma.PatientScalarFieldEnum = {
   firstTreatmentHere: 'firstTreatmentHere',
   note: 'note',
   filterNo: 'filterNo',
+  absentToday: 'absentToday',
+  totalAbsence: 'totalAbsence',
+  latestAbsence: 'latestAbsence',
+  latestAbsenceBU: 'latestAbsenceBU',
   schedule: 'schedule'
 };
 
@@ -235,6 +239,8 @@ exports.Prisma.patientOrderByRelevanceFieldEnum = {
   firstTreatmentHere: 'firstTreatmentHere',
   note: 'note',
   filterNo: 'filterNo',
+  latestAbsence: 'latestAbsence',
+  latestAbsenceBU: 'latestAbsenceBU',
   schedule: 'schedule'
 };
 

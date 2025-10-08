@@ -34,7 +34,7 @@ const RootLayout = () => {
 
   return (
     <>
-      <main className="relative flex  flex-row-reverse ">
+      <main className="relative flex  flex-row-reverse h-screen w-screen overflow-hidden">
         <MainSidebar />
         <section className=" flex flex-col gap-4 left-5 top-5 w-full">
           <div className="w-full flex gap-4 items-center justify-between px-8 py-4 border-b-2 border-black/25">

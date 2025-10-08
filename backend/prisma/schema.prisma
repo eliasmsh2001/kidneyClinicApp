@@ -17,83 +17,87 @@ model user {
 }
 
 model patient {
-  id                 Int     @id @unique @default(autoincrement())
-  patientName        String? @db.Text
-  residentialId        String? @db.Text
-  age                String? @db.Text 
-  birthDate          String? @db.Text
-  phoneNumber        String? @db.Text
-  address            String? @db.Text
-  bloodType          String? @db.Text
-  hight              String? @db.Text
-  weight             String? @db.Text
-  social             String? @db.Text
-  gender             String? @db.Text
-  sicknessCause      String? @db.Text
-  firstEverTreatment String? @db.Text
-  firstTreatmentHere String? @db.Text
-  note               String? @db.Text
-  filterNo           String? @db.Text
+  id                  Int     @id @unique @default(autoincrement())
+  patientName         String? @db.Text
+  residentialId       String? @db.Text
+  age                 String? @db.Text
+  birthDate           String? @db.Text
+  phoneNumber         String? @db.Text
+  address             String? @db.Text
+  bloodType           String? @db.Text
+  hight               String? @db.Text
+  weight              String? @db.Text
+  social              String? @db.Text
+  gender              String? @db.Text
+  sicknessCause       String? @db.Text
+  firstEverTreatment  String? @db.Text
+  firstTreatmentHere  String? @db.Text
+  note                String? @db.Text
+  filterNo            String? @db.Text
+  // absentToday         Boolean?
+  // totalAbsence        Int?
+  // latestAbsence       String?
+  // latestAbsenceBU     String?
   schedule            String?
-  files              file[]
-  sessions           session[]
+  files               file[]
+  sessions            session[]
   
 }
 
 model file {
-  id  Int @id @unique @default(autoincrement())
-  patientId      Int
-  originalName String
-  storedName   String
-  size        Int
-  mimeType    String
-  path        String
-  uploadedAt  DateTime @default(now())
-  patient     patient @relation(fields: [patientId], references: [id])
+  id              Int @id @unique @default(autoincrement())
+  patientId       Int
+  originalName    String
+  storedName      String
+  size            Int
+  mimeType        String
+  path            String
+  uploadedAt      DateTime @default(now())
+  patient         patient @relation(fields: [patientId], references: [id])
 }
 
 model session {
-  id Int @id @unique @default(autoincrement())
-  date String?
-  day String?
-  techName String?
-  deviceNo String?
-  sessionType String?
-  sessionDuration String?
-  startingTime String?
+  id                Int @id @unique @default(autoincrement())
+  date              String?
+  day               String?
+  techName          String?
+  deviceNo          String?
+  sessionType       String?
+  sessionDuration   String?
+  startingTime      String?
   anticoagulantUsed String?
-  ktv String?
-  urr String?
+  ktv               String?
+  urr               String?
   ultrafiltrationRate String?
-  wtPreHD String?
-  wtPostHD String?
-  HDStarting String?
-  heparinRate String?
-  heparinBolus String?
-  UFGoal String?
-  intake String?
-  output String?
-  balance Int?
-  patientId Int
-  patient   patient @relation(fields: [patientId], references: [id])
-  hours  sessionHours[]
+  wtPreHD           String?
+  wtPostHD          String?
+  HDStarting        String?
+  heparinRate       String?
+  heparinBolus      String?
+  UFGoal            String?
+  intake            String?
+  output            String?
+  balance           Int?
+  patientId         Int
+  patient           patient @relation(fields: [patientId], references: [id])
+  hours             sessionHours[]
 }
 
 model sessionHours {
-  id Int @id @unique @default(autoincrement())
-  time String?
-  bloodPressure String?
-  systolicBP    Int?
-  diastolicBP   Int?
-  rbs String?
-  ivf String?
-  drugs String?
-  cramps String?
-  vomitting String?
-  hematoma String?
-  chestPain String?
-  pulseRate String?
-  temperature String?
-  sessionId Int 
-  session   session @relation(fields: [sessionId], references: [id])
+  id                Int @id @unique @default(autoincrement())
+  time              String?
+  bloodPressure     String?
+  systolicBP        Int?
+  diastolicBP       Int?
+  rbs               String?
+  ivf               String?
+  drugs             String?
+  cramps            String?
+  vomitting         String?
+  hematoma          String?
+  chestPain         String?
+  pulseRate         String?
+  temperature       String?
+  sessionId         Int 
+  session           session @relation(fields: [sessionId], references: [id])
 }

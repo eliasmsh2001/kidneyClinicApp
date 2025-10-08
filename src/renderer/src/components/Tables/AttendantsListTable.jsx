@@ -15,6 +15,7 @@ const AttendantsListTable = ({ data }) => {
             <th className="w-72 py-1">PATIENT NAME</th>
             <th className="w-52 py-1">SOCIAL SECURITY</th>
             <th className="w-26 py-1">LATEST SESSION</th>
+            <th className=" "></th>
           </tr>
         </thead>
         <tbody>
@@ -22,21 +23,28 @@ const AttendantsListTable = ({ data }) => {
             data.map((item, index) => (
               <React.Fragment key={item.id}>
                 <tr
-                  onClick={() => {
-                    navigate(`/patientsList/patientDetails/${item.id}`)
-                  }}
-                  className={clsx(
-                    'border-y-2 border-black/35 hover:bg-secondaryText/15 duration-200 cursor-pointer',
-                    {
-                      'bg-mainText/15': index % 2 === 0 && !item?.attended,
-                      'bg-green-300': item?.attended
-                    }
-                  )}
+                  className={clsx('border-y-2 border-black/35 ', {
+                    'bg-mainText/15': index % 2 === 0 && !item?.attended,
+                    'bg-green-300': item?.attended
+                  })}
                 >
                   <td className={`${cellStyle} w-32`}>{item.id}</td>
                   <td className={`${cellStyle} w-72`}>{item?.patientName}</td>
                   <td className={`${cellStyle} w-52`}>{item?.residentialId}</td>
                   <td className={`${cellStyle} w-36`}>{item?.latestSesstion}</td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        navigate(`/patientsList/patientDetails/${item.id}`)
+                      }}
+                      className="bg-green-500 text-sm font-bold text-white p-2 hover:opacity-40 duration-200"
+                    >
+                      DETAILS
+                    </button>
+                    {/* <button className="bg-alert text-sm font-bold text-white p-2 hover:opacity-40 duration-200">
+                      ABSENT
+                    </button> */}
+                  </td>
                 </tr>
                 {(data.indexOf(item) + 1) % 15 === 0 && <div className="break-before-page" />}
               </React.Fragment>
