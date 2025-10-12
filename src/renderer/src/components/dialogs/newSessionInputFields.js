@@ -45,7 +45,7 @@ const inputFeilds = [
     key: 6,
     label: 'Starting Time',
     name: 'startingTime',
-    style: `${inputStyle} w-24`,
+    style: `${inputStyle} w-32`,
     placeholder: '...اكتب',
     type: 'time'
   },

@@ -7,7 +7,6 @@ const sessionsRouter = express.Router()
 
 sessionsRouter.post('/newSession', async (req, res) => {
   const { data, sessionHours, patientId } = req.body
-
   const date = new Date()
 
   let day = date.getDate()
@@ -17,14 +16,16 @@ sessionsRouter.post('/newSession', async (req, res) => {
   // This arrangement can be altered based on how we want the date's format to appear.
   let currentDate = `${year}-${month}-${day}`
 
+  const sessionDate = data.date ? new Date(data.date) : new Date()
+
   try {
     const newSesstion = await prisma.session.create({
       data: {
         date: data.date ? data.date : currentDate,
-        day: 'Unknown',
+        day: sessionDate.toLocaleDateString('en-US', { weekday: 'long' }),
         techName: data.techName ? data.techName : 'Unknown',
         deviceNo: data.deviceNo ? data.deviceNo : 'Unknown',
-        deviceNo: data.bloodPressure ? data.bloodPressure : 'Unknown',
+        // : data.bloodPressure ? data.bloodPressure : 'Unknown',
         sessionType: data.sessionType ? data.sessionType : 'Unknown',
         startingTime: data.startingTime ? data.startingTime : 'Unknown',
         anticoagulantUsed: data.anticoagulantUsed ? data.anticoagulantUsed : 'Unknown',
@@ -68,7 +69,7 @@ sessionsRouter.post('/newSession', async (req, res) => {
 
     res.json(newSesstion, newSesstionHours)
   } catch (e) {
-    // console.log(e)
+    console.log(e)
     res.status(400).json({ error: e.error })
   }
 })
@@ -122,11 +123,16 @@ sessionsRouter.put('/editSession', async (req, res) => {
   try {
     const existingSession = await prisma.session.findUnique({ where: { id: Number(sessionId) } })
 
+    const sessionDate = data.date ? new Date(data.date) : new Date()
+
     const updatedSesstion = await prisma.session.update({
       where: { id: Number(sessionId) },
       data: {
         date: data.date && data.date.length > 1 ? data.date : existingSession.date,
-        day: 'Unknown',
+        day:
+          data.date && data.date.length > 1
+            ? sessionDate.toLocaleDateString('en-US', { weekday: 'long' })
+            : existingSession.day,
         techName:
           data.techName && data.techName.length > 1 ? data.techName : existingSession.techName,
         deviceNo:

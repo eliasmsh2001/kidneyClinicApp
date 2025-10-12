@@ -41,7 +41,7 @@ const AddNewPatient = () => {
       >
         <RedoIcon style={{ height: 30, width: 30, fill: 'white' }} />
       </button>
-      <h1 className="text-center px-24  text-mainText text-xl font-bold">حالة جديدة</h1>
+      <h1 className="text-center px-24  text-mainBlue text-3xl font-bold ">NEW PATIENT</h1>
       <PatientFrom
         handleSubmit={handleSubmitForm}
         error={AddingError}

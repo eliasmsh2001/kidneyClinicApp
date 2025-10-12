@@ -85,6 +85,10 @@ const SessionDetails = ({ data, setPageView }) => {
         <div className="flex flex-col h-44 justify-start items-start gap-4 flex-wrap ">
           <h1 className="text-lg font-bold text-mainText">
             {' '}
+            Anticoagulant Used: <span className="text-stone-500">{data?.anticoagulantUsed} </span>
+          </h1>
+          <h1 className="text-lg font-bold text-mainText">
+            {' '}
             Ultrafiltration Rate:{' '}
             <span className="text-stone-500">{data?.ultrafiltrationRate} </span>
           </h1>
